@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Start Head --> 
+<head>
+  <meta charset="UTF-8">
+  <title>PL Fansite - Game</title>
+  <!-- CSS reset sheet --> 
+  <link rel="stylesheet" type="text/css" href="Assets/CSS/reset.css">
+  <!-- current version of bootstrap --> 
+  <link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css” integrity=“sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ” crossorigin=“anonymous”>
+  <!-- themed bootstrap sheet --> 
+  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/paper/bootstrap.min.css">
+  <!-- my stylesheet -->
+  <link rel="stylesheet" type="text/css" href="Assets/CSS/game.css">
+  <!-- adding in jquery --> 
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <!-- adding in bootstrap js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- my js game file -->
+  <script src="Assets/javascript/app.js"></script>
+  <!-- Icons file -->
+  <script src="https://use.fontawesome.com/c8b6d2fc87.js"></script>
+  <!-- Run Firebase Hosting -->
+  <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDkFuc540SD5CRW8KPqY9Nl7o1mZszC9I4",
+      authDomain: "plfansite-661c8.firebaseapp.com",
+      databaseURL: "https://plfansite-661c8.firebaseio.com",
+      projectId: "plfansite-661c8",
+      storageBucket: "plfansite-661c8.appspot.com",
+      messagingSenderId: "357624400008"
+    };
+    firebase.initializeApp(config);
+  </script>
+</head>
+
+
+<!-- Start Body --> 
+<body>
+<!-- Page Title --> 
+
+
+              <!-- How it works Modal -->
+              <div id="howitworksmodal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">How the game works</h4>
+                    </div>
+                      <div class="modal-body">
+                        <p>Pick one of the 9 field locations to shoot from. Click on that location to "shoot" towards the goal. If you make it, you will get a point. If you miss, the Computer will get a Save and you will get a block. 
+                        <br/><br/></p>
+                      </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Got it! Let's play!</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+<div class="container" style="padding-top:50px;">
+  <div class="row">
+      <div class="col-sm-9">
+        <div class="panel panel-default">
+              <div class="panel-heading">
+              <h3 class="panel-title"><strong>Game Container</strong></h3>
+              </div>
+              <div class="panel-body" id="imagespanel">
+
+                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#howitworksmodal">How It Works</a><br/><br/>
+                
+                <!-- 1st row */ -->
+                <div class="gamediv"></div>
+                <div class="gamediv"></div>
+                <div class="gamediv"></div>
+                <!-- 2nd row */ -->
+                <div class="gamediv"></div>
+                <div class="gamediv"></div>
+                <div class="gamediv"></div>
+                <!-- 3rd row */ -->
+                <div class="gamediv"></div>
+                <div class="gamediv"></div>
+                <div class="gamediv"></div>
+
+                
+
+
+              </div>
+            </div>
+      </div>
+
+
+<!--Enders -->
+</body>
+</html>
