@@ -96,5 +96,16 @@ li{
 	font-size: 16px;
 }
 .teamInfo{
-	background: green;
+	text-align: center;
+}
+.gameSchedule {
+	margin-top: 10px;
+	font-size: 12px;
+	background: white;
+}
+.gameSchedule th{
+	text-align: center;
+}
+.latestPost{
+	margin-bottom: 10px;
 }
