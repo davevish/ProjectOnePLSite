@@ -10,14 +10,17 @@ $.ajax({
     type: "GET"
 }).done(function(response) {
     console.log(response);
+    // console.log(response.teams);
+    // console.log(response.teams[0]._links.players.href);
 
 //  function to list all teams
     for (var i = 0; i < response.teams.length; i++) {
         var teams = response.teams[i].name;
         $("#all-team-names").append(teams);
+
+        SquadQuery = response.teams[i]._links.players.href;
+        console.log(SquadQuery);
     }
-    SquadQuery = response.teams[i].players.href;
-    console.log(SquadQuery);
     //  function to grab squad of chosen team
     listMySquad();
 
