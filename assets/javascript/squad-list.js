@@ -16,7 +16,9 @@ $.ajax({
 //  List all teams in sidebar
     for (var i = 0; i < response.teams.length; i++) {
         var teams = response.teams[i].name;
-        $("#all-team-names").append(teams);
+        console.log(teams);
+        var orderThis =
+        $("#thisBeAllTheTeams").append("<li>" + teams + "</li>");
 
         SquadQuery = response.teams[i]._links.players.href;
         console.log(SquadQuery);
@@ -50,7 +52,7 @@ function listMySquad() {
         dataType: "json",
         type: "GET"
     }).done(function(response) {
-        
+
         //  make variable for response.players for less chance of error
         var playersResp = response.players;
 
