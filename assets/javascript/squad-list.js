@@ -12,17 +12,27 @@ $.ajax({
     console.log(response);
     // console.log(response.teams);
     // console.log(response.teams[0]._links.players.href);
-
-//  List all teams in sidebar
+var orderTeam = [];
     for (var i = 0; i < response.teams.length; i++) {
         var teams = response.teams[i].name;
+        orderTeam.push(teams);
         console.log(teams);
-        var orderThis =
-        $("#thisBeAllTheTeams").append("<li>" + teams + "</li>");
+//  List all teams in sidebar
+
+
+        // $("#thisBeAllTheTeams").append("<li>" + teams + "</li>");
 
         SquadQuery = response.teams[i]._links.players.href;
         console.log(SquadQuery);
     }
+
+    var newOrder = orderTeam.sort();
+
+    newOrder.forEach(function (team) {
+        $("#thisBeAllTheTeams").append("<li>" + team + "</li>");
+    });
+    console.log(newOrder);
+
     //  function to grab squad of chosen team
     listMySquad();
 
