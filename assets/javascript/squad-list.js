@@ -9,7 +9,7 @@ $.ajax({
     dataType: "json",
     type: "GET"
 }).done(function(response) {
-    console.log(response);
+    // console.log(response);
     // console.log(response.teams);
     // console.log(response.teams[0]._links.players.href);
 var orderTeam = [];
@@ -17,10 +17,6 @@ var orderTeam = [];
         var teams = response.teams[i].name;
         orderTeam.push(teams);
         console.log(teams);
-//  List all teams in sidebar
-
-
-        // $("#thisBeAllTheTeams").append("<li>" + teams + "</li>");
 
         SquadQuery = response.teams[i]._links.players.href;
         console.log(SquadQuery);
@@ -36,20 +32,7 @@ var orderTeam = [];
     //  function to grab squad of chosen team
     listMySquad();
 
-
-
-
 });
-
-
-
-//  List ALL teams in sidebar
-// function listAllTeams() {
-//     for (var i = 0; i < response.teams.length; i++) {
-//         var teams = response.teams[i].name;
-//         $("#all-team-names").append(teams);
-//     }
-// }
 
 //    List All Squad for team chosen
 function listMySquad() {
