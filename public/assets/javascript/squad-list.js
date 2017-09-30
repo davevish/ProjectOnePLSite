@@ -1,15 +1,18 @@
 var squadAPI = "97dcf4541b834e55a85220bc5957afa1";
 var teamsQuery = "http://api.football-data.org/v1/competitions/445/teams";
-var combo = teamsQuery + squadAPI;
-var SquadQuery;
-var teamLink;
-var orderTeam = [];
 
+var SquadQuery;
+var orderTeam = [];
 var playerTest = {};
 var fixturesTest = {};
 var playersUrl;
+var fixturesUrl;
 
-var nextFixtureDate;
+// For Var Fixtures
+var nextFixtureDate = [];
+var homeTeamNameFixture = [];
+var awayTeamNameFixture = [];
+
 //**** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   ***********************************************************
 var teamPlayerFixturesOrdered = [];
 
@@ -75,8 +78,11 @@ $.ajax({
 
     $(".thisTeamClass").on("click", function (){
 
+        // Empty on every click so that only selected teams info is displayed
+        $(".teamPlayersTable").empty();
+
+        //  First Populate the players table
         playersUrl = $(this).attr("data-players");
-        // console.log(playersUrl);
 
         $.ajax({
             headers: { "X-Auth-Token": squadAPI },
@@ -87,20 +93,22 @@ $.ajax({
             //  All Players
             var playersResp = response.players;
             console.log(playersResp);
-            //  Players Name
-            var playerFullName = response.players.name;
-            console.log(playerFullName);
-            //  Numbers
-            var numbersResp = response.players.jerseyNumber;
-            //  Position
-            var positionResp = response.players.position;
 
             //  Loop over all players and make new rows and data dynamically and add to HTML
             for(var j = 0; j < playersResp.length; j++) {
+                //  Players Name
+                var playerFullName = response.players[j].name;
+                console.log(playerFullName);
+                //  Numbers
+                var numbersResp = response.players[j].jerseyNumber;
+                //  Position
+                var positionResp = response.players[j].position;
+
                 $(".teamPlayersTable").append("<tr><td>" + playerFullName + "</td><td>" + numbersResp + "</td><td>" + positionResp + "</td>" );
             }
         });
 
+        //  Now Populate the Fixture table
         fixturesUrl = $(this).attr("data-fixtures");
         // console.log(playersUrl);
 
@@ -111,10 +119,13 @@ $.ajax({
             type: "GET"
         }).done(function(response) {
 
-            for(var i = 0; )
-            if (response.fixtures.status === "TIMED") {
-                nextFixtureDate = response.fixtures
+            for( var i = 0; i < response.fixtures.length;i++ )
+                if (response.fixtures.status === "TIMED") {
+                    nextFixtureDate.push(response.fixtures.date);
+                    homeTeamNameFixture.push(response.fixtures.homeTeamName);
+                    awayTeamNameFixture.push(response.fixtures.awayTeamName);
             }
+            console.log(homeTeamNameFixture);
 
             //  All Players
             var fixturesResp = response.fixtures[0];
