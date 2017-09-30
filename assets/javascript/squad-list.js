@@ -7,12 +7,15 @@ var orderTeam = [];
 
 var playerTest = {};
 var fixturesTest = {};
+var playersUrl;
+
+var nextFixtureDate;
 //**** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   ***********************************************************
 var teamPlayerFixturesOrdered = [];
 
 $.ajax({
-    headers: { "X-Auth-Token": "97dcf4541b834e55a85220bc5957afa1" },
-    url: "http://api.football-data.org/v1/competitions/445/teams",
+    headers: { "X-Auth-Token": squadAPI },
+    url: teamsQuery,
     dataType: "json",
     type: "GET"
 }).done(function(response) {
@@ -52,24 +55,70 @@ $.ajax({
     // console.log(newTeamOrder);
 
     teamPlayerFixturesOrdered.forEach(function (team) {
-        $("#thisBeAllTheTeams").append("<li><a class='thisTeamClass' data-players=`team[1]` data-fixtures=`team[2]`>" + team[0] + "</a></li>")
+        var aTagLink = $("<a>");
+        var listItem = $("<li>");
+
+        listItem.html(team[0]);
+        listItem.addClass("thisTeamClass");
+        listItem.attr({
+            "data-players":team[1],
+            "data-fixtures":team[2]
+        });
+
+        aTagLink.append(listItem);
+
+        $("#thisBeAllTheTeams").append(aTagLink);
+
+        // $("#thisBeAllTheTeams").append("<li><a class='thisTeamClass' 'data-players='" + team[1] + "'  data-fixtures=`team[2]`>" + team[0] + "</a></li>");
 
     });
 
     $(".thisTeamClass").on("click", function (){
 
-        var playersUrl = this.attr("data-players");
-
-        console.log(playersURL);
+        playersUrl = $(this).attr("data-players");
+        // console.log(playersUrl);
 
         $.ajax({
-            headers: { "X-Auth-Token": "97dcf4541b834e55a85220bc5957afa1" },
+            headers: { "X-Auth-Token": squadAPI },
             url: playersUrl,
             dataType: "json",
             type: "GET"
         }).done(function(response) {
             //  All Players
             var playersResp = response.players;
+            console.log(playersResp);
+            //  Players Name
+            var playerFullName = response.players.name;
+            console.log(playerFullName);
+            //  Numbers
+            var numbersResp = response.players.jerseyNumber;
+            //  Position
+            var positionResp = response.players.position;
+
+            //  Loop over all players and make new rows and data dynamically and add to HTML
+            for(var j = 0; j < playersResp.length; j++) {
+                $(".teamPlayersTable").append("<tr><td>" + playerFullName + "</td><td>" + numbersResp + "</td><td>" + positionResp + "</td>" );
+            }
+        });
+
+        fixturesUrl = $(this).attr("data-fixtures");
+        // console.log(playersUrl);
+
+        $.ajax({
+            headers: { "X-Auth-Token": squadAPI },
+            url: fixturesUrl,
+            dataType: "json",
+            type: "GET"
+        }).done(function(response) {
+
+            for(var i = 0; )
+            if (response.fixtures.status === "TIMED") {
+                nextFixtureDate = response.fixtures
+            }
+
+            //  All Players
+            var fixturesResp = response.fixtures[0];
+            console.log(fixturesResp);
             //  Players Name
             var playerFullName = response.players.name;
             console.log(playerFullName);
@@ -87,6 +136,9 @@ $.ajax({
     });
 
 });
+
+
+
 
 
 //
