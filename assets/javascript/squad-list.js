@@ -35,17 +35,24 @@ $.ajax({
     // Sort Teams by Name
     var newTeamOrder = orderTeam.sort();
     // Sort Players Query Links by Team
-    var newPlayersOrder;
+    var newPlayersOrder = [];
     // Sort Fixtures Query Links by Team
     var newFixturesOrder;
 
+    Object.keys(playerTest, fixturesTest)
+        .sort()
+        .forEach(function(v, i) {
+            newPlayersOrder.push([v , playerTest[v] , fixturesTest[v]]);
+            console.log(v, playerTest[v], fixturesTest[v]);
+        });
 
+    console.log(newPlayersOrder);
     console.log(playerTest);
     console.log(fixturesTest);
     // console.log(newPlayersOrder);
 
     newTeamOrder.forEach(function (team) {
-        $("#thisBeAllTheTeams").append("<li><a>" + team + "</a></li>");
+        $("#thisBeAllTheTeams").append("<li><a class='thisTeamClass'>" + team + "</a></li>");
     });
 });
 
