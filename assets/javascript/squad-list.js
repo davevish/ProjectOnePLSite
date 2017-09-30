@@ -35,21 +35,19 @@ $.ajax({
     // Sort Teams by Name
     var newTeamOrder = orderTeam.sort();
     // Sort Players Query Links by Team
-    var newPlayersOrder = [];
+    var teamPlayerFixturesOrdered = [];
     // Sort Fixtures Query Links by Team
     var newFixturesOrder;
 
     Object.keys(playerTest, fixturesTest)
         .sort()
         .forEach(function(v, i) {
-            newPlayersOrder.push([v , playerTest[v] , fixturesTest[v]]);
+            teamPlayerFixturesOrdered.push([v , playerTest[v] , fixturesTest[v]]);
             console.log(v, playerTest[v], fixturesTest[v]);
         });
 
-    console.log(newPlayersOrder);
-    console.log(playerTest);
-    console.log(fixturesTest);
-    // console.log(newPlayersOrder);
+//  Log the array that holds the team info     [[ Team Name, Players , Fixtures] , .....]
+    console.log(teamPlayerFixturesOrdered);
 
     newTeamOrder.forEach(function (team) {
         $("#thisBeAllTheTeams").append("<li><a class='thisTeamClass'>" + team + "</a></li>");
