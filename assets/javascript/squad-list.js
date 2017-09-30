@@ -7,6 +7,8 @@ var orderTeam = [];
 
 var playerTest = {};
 var fixturesTest = {};
+//**** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   ***********************************************************
+var teamPlayerFixturesOrdered = [];
 
 $.ajax({
     headers: { "X-Auth-Token": "97dcf4541b834e55a85220bc5957afa1" },
@@ -34,26 +36,57 @@ $.ajax({
     }
     // Sort Teams by Name
     var newTeamOrder = orderTeam.sort();
-    // Sort Players Query Links by Team
-    var teamPlayerFixturesOrdered = [];
-    // Sort Fixtures Query Links by Team
-    var newFixturesOrder;
 
     Object.keys(playerTest, fixturesTest)
         .sort()
         .forEach(function(v, i) {
             teamPlayerFixturesOrdered.push([v , playerTest[v] , fixturesTest[v]]);
-            console.log(v, playerTest[v], fixturesTest[v]);
         });
 
 //  Log the array that holds the team info     [[ Team Name, Players , Fixtures] , .....]
     console.log(teamPlayerFixturesOrdered);
 
-    newTeamOrder.forEach(function (team) {
-        $("#thisBeAllTheTeams").append("<li><a class='thisTeamClass'>" + team + "</a></li>");
-    });
-});
+    // newTeamOrder.forEach(function (team) {
+    //     $("#thisBeAllTheTeams").append("<li><a class='thisTeamClass'>" + team + "</a></li>");
+    // });
+    // console.log(newTeamOrder);
 
+    teamPlayerFixturesOrdered.forEach(function (team) {
+        $("#thisBeAllTheTeams").append("<li><a class='thisTeamClass' data-players=`team[1]` data-fixtures=`team[2]`>" + team[0] + "</a></li>")
+
+    });
+
+    $(".thisTeamClass").on("click", function (){
+
+        var playersUrl = this.attr("data-players");
+
+        console.log(playersURL);
+
+        $.ajax({
+            headers: { "X-Auth-Token": "97dcf4541b834e55a85220bc5957afa1" },
+            url: playersUrl,
+            dataType: "json",
+            type: "GET"
+        }).done(function(response) {
+            //  All Players
+            var playersResp = response.players;
+            //  Players Name
+            var playerFullName = response.players.name;
+            console.log(playerFullName);
+            //  Numbers
+            var numbersResp = response.players.jerseyNumber;
+            //  Position
+            var positionResp = response.players.position;
+
+            //  Loop over all players and make new rows and data dynamically and add to HTML
+            for(var j = 0; j < playersResp.length; j++) {
+                $(".teamPlayersTable").append("<tr><td>" + playerFullName + "</td><td>" + numbersResp + "</td><td>" + positionResp + "</td>" );
+            }
+        })
+
+    });
+
+});
 
 
 //
