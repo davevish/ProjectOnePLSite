@@ -7,6 +7,7 @@
       storageBucket: "plfansite-661c8.appspot.com",
       messagingSenderId: "357624400008"
     };
+    
     firebase.initializeApp(config);
 
 
