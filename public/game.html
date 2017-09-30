@@ -18,7 +18,46 @@
 
 <!-- Start Body --> 
 <body>
-<!-- Page Title --> 
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden='true'></span></a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden='true'></span></a></li>
+        </ul>
+        <h3 class="navbar-text navbar-right username">John Doe</h3>
+      </div>
+    </div>
+  </nav>
+  <div class="meny">
+    <h2>Teams</h2>
+    <ul id="thisBeAllTheTeams">
+      <li></li>
+    </ul>
+  </div>
+
+  <div class="meny-arrow"></div>
+
+<div id="header-section">
+  <div class="jumbotron" style="background: #50c878 ;" id="jumbotron-div">
+    <div class="text-center"><i class="fa fa-question-circle-o fa-5x" style="Color:#ffa500;"></i></div>
+    <h1 class="text-center" id="pagetitle"><strong>PK Shootout</strong></h1>
+    <h3 class="text-center">Time to take your shot on goal. </h3>
+    <center><button class="btn btn-info" id="jumbo-btn">Collapse Jumbotron</button></center>
+    <br/>
+  </div>
+</div>
+
+
 
 
               <!-- How it works Modal -->
@@ -43,8 +82,54 @@
                 </div>
               </div>
 
+              <!-- Winner Modal -->
+              <div id="winnermodal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-<div class="container" style="padding-top:50px;">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">WINNER!</h4>
+                    </div>
+                      <div class="modal-body">
+                        <h3><center>You won!<br/>
+                          <iframe src="https://giphy.com/embed/SkTWoll9Dzpja" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                        <br/><br/></center></h3>
+                      </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Okay, let's play again!</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Loser Modal -->
+              <div id="losermodal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">LOSER!</h4>
+                    </div>
+                      <div class="modal-body">
+                        <h3><center>You lost!<br/>
+                          <iframe src="https://giphy.com/embed/xT1XGEx5LYYv74HAQg" width="480" height="283" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                        <br/><br/></center></h3>
+                      </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Okay, let's play again!</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+<div class="container" style="padding-top:25px;">
   <div class="row">
       <div class="col-sm-9">
         <div class="panel panel-default">
@@ -54,19 +139,18 @@
               <div class="panel-body" id="imagespanel">
 
                 
-                
                 <!-- 1st row */ -->
-                <div class="gamediv square"></div>
-                <div class="gamediv square"></div>
-                <div class="gamediv square"></div>
+                <img src="assets/images/GameImages/Untitled-1_r1_c1.jpg" class="gamediv square">
+                <img src="assets/images/GameImages/Untitled-1_r1_c3.jpg" class="gamediv square">
+                <img src="assets/images/GameImages/Untitled-1_r1_c5.jpg" class="gamediv square">
                 <!-- 2nd row */ -->
-                <div class="gamediv square"></div>
-                <div class="gamediv square"></div>
-                <div class="gamediv square"></div>
+                <img src="assets/images/GameImages/Untitled-1_r2_c2.jpg" class="gamediv square">
+                <img src="assets/images/GameImages/Untitled-1_r2_c4.jpg" class="gamediv square">
+                <img src="assets/images/GameImages/Untitled-1_r2_c6.jpg" class="gamediv square">
                 <!-- 3rd row */ -->
-                <div class="gamediv square"></div>
-                <div class="gamediv square"></div>
-                <div class="gamediv square"></div>
+                <img src="assets/images/GameImages/Untitled-1_r3_c2.jpg" class="gamediv square">
+                <img src="assets/images/GameImages/Untitled-1_r3_c4.jpg" class="gamediv square">
+                <img src="assets/images/GameImages/Untitled-1_r3_c6.jpg" class="gamediv square">
 
               </div>
         </div>
