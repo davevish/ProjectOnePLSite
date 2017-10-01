@@ -13,6 +13,15 @@ var nextFixtureDate = [];
 var homeTeamNameFixture = [];
 var awayTeamNameFixture = [];
 
+// Banners Array to hold All Team Banners
+var bannersTeam = [ "assets/images/banners/Arsenal.jpg", "assets/images/banners/Bournemouth.jpg", "assets/images/banners/Brighton.jpg",
+                    "assets/images/banners/Burnley.jpg", "assets/images/banners/CFCBanner.jpg", "assets/images/banners/CrystalPalace.jpg",
+                    "assets/images/banners/Everton.jpg", "assets/images/banners/Huddersfield.jpg", "assets/images/banners/LiecesterCity.jpg",
+                    "assets/images/banners/Liverpool.jpg", "assets/images/banners/ManCity.jpg", "assets/images/banners/ManUnited.jpg",
+                    "assets/images/banners/NewcastleUnited.jpg", "assets/images/banners/Southampton.jpg", "assets/images/banners/StokeCity.jpg",
+                    "assets/images/banners/SwanseaCity.jpg", "assets/images/banners/Tottenham.jpg", "assets/images/banners/Watford.jpg",
+                    "assets/images/banners/WestBrom.jpg", "assets/images/banners/WestHam.jpg" ];
+
 //**** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   ***********************************************************
 var teamPlayerFixturesOrdered = [];
 
@@ -29,7 +38,7 @@ $.ajax({
     for (var i = 0; i < response.teams.length; i++) {
         var teams = response.teams[i].name;
         orderTeam.push(teams);
-        console.log(teams);
+        // console.log(teams);
 
     //  Grab Squad and Fixtures Query Links and store them in a object
         SquadQuery = response.teams[i]._links.players.href;
@@ -78,6 +87,7 @@ $.ajax({
 
     $(".thisTeamClass").on("click", function (){
 
+        $('.bannerImage').attr('src','assets/images/banners/Arsenal.jpg');
         // Empty on every click so that only selected teams info is displayed
         $(".teamPlayersTable").empty();
 
@@ -107,6 +117,7 @@ $.ajax({
                 $(".teamPlayersTable").append("<tr><td>" + playerFullName + "</td><td>" + numbersResp + "</td><td>" + positionResp + "</td>" );
             }
         });
+
 
         //  Now Populate the Fixture table
         fixturesUrl = $(this).attr("data-fixtures");
@@ -140,54 +151,12 @@ $.ajax({
 
             //  Loop over all players and make new rows and data dynamically and add to HTML
             for(var j = 0; j < playersResp.length; j++) {
-                $(".teamPlayersTable").append("<tr><td>" + playerFullName + "</td><td>" + numbersResp + "</td><td>" + positionResp + "</td>" );
+                $(".teamPlayersTable").append("<tr><td>" + playerFullName + "</td><td>" + numbersResp + "</td><td>" + positionResp + "</td></tr>" );
             }
         })
 
     });
 
 });
-
-
-
-
-
-//
-//
-// //    List All Squad for team chosen
-// function listMySquad(api) {
-// //  New Query cause API has different link for every team instead of
-// //  hard coding every team
-//
-//     $.ajax({
-//         headers: { "X-Auth-Token": "97dcf4541b834e55a85220bc5957afa1" },
-//         url: api,
-//         dataType: "json",
-//         type: "GET"
-//     }).done(function(response) {
-//         console.log(response);
-//         //  make variable for response.players for less chance of error
-//         var playersResp = response.players;
-//
-//     //  Loop over all players and make new rows and data dynamically
-//         for(var j = 0; j < playersResp.length;j++) {
-//             var newSquadRow = $("<tr>");
-//             var nameData = $("<td>");
-//             var positionData = $("<td>");
-//             var jerseyNumberData = $("<td>");
-//     //  target table data created and
-//             nameData.text(playersResp.name);
-//             positionData.text(playersResp.position);
-//             jerseyNumberData.text(playersResp.jerseyNumber);
-//     //  Append new data to New Row
-//             newSquadRow.append(nameData);
-//             newSquadRow.append(positionData);
-//             newSquadRow.append(jerseyNumberData);
-//     //  Move from DOM to HTML
-//             $(".table").append(newSquadRow);
-//
-//         }
-//     })
-// }
 
 
