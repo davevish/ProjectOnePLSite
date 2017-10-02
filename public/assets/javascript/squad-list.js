@@ -13,18 +13,29 @@ var nextFixtureDate = [];
 var homeTeamNameFixture = [];
 var awayTeamNameFixture = [];
 
-var asd = ['<img class="bannerImage" src="assets/images/banners/Arsenal.jpg">'];
 // Banners Array to hold All Team Banners
-var bannersTeam = [ "assets/images/banners/Arsenal.jpg", "assets/images/banners/Bournemouth.jpg", "assets/images/banners/Brighton.jpg",
+var bannersTeam = [ "assets/images/banners/Bournemouth.jpg", "assets/images/banners/Arsenal.jpg", "assets/images/banners/Brighton.jpg",
                     "assets/images/banners/Burnley.jpg", "assets/images/banners/CFCBanner.jpg", "assets/images/banners/CrystalPalace.jpg",
                     "assets/images/banners/Everton.jpg", "assets/images/banners/Huddersfield.jpg", "assets/images/banners/LiecesterCity.jpg",
                     "assets/images/banners/Liverpool.jpg", "assets/images/banners/ManCity.jpg", "assets/images/banners/ManUnited.jpg",
                     "assets/images/banners/NewcastleUnited.jpg", "assets/images/banners/Southampton.jpg", "assets/images/banners/StokeCity.jpg",
                     "assets/images/banners/SwanseaCity.jpg", "assets/images/banners/Tottenham.jpg", "assets/images/banners/Watford.jpg",
                     "assets/images/banners/WestBrom.jpg", "assets/images/banners/WestHam.jpg" ];
+// All Team Managers
+var teamManagers = ["Eddie Howe", "Arsène Wenger", "Chris Hughton", "Sean Dyche", "Antonio Conte", "Roy Hodgson", "Ronald Koeman",
+                    "David Wagner", "Craig Shakespeare", "Jürgen Klopp", "Josep Guardiola", "José Mourinho", "Rafael Benítez",
+                    "Mauricio Pellegrino", "Mark Hughes", "Paul Clement", "Mauricio Pochettino", "Marco Silva", "Tony Pulis",
+                    "Slaven Bilic"];
 
-//**** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   ***********************************************************
-var teamPlayerFixturesOrdered = [];
+// All Team Stadium Names
+var teamStadiums = ["Vitality Stadium", "The Emirates", "The Amex", "Turf Moor", "Stamford Bridge", "Selhurst Park",
+                    "Goodison Park", "John Smith's Stadium", "King Power Stadium", "Anfield", "The Etihad", "Old Trafford",
+                    "St James' Park", "St Mary's Stadium", "Bet365 Stadium", "Libery Stadium", "White Hart Lane",
+                    "Vicarage Road", "The Hawthorns", "Olympic Stadium London"];
+
+
+//****************** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   *********************************************
+var allTeamInfoOrdered = [];
 
 $.ajax({
     headers: { "X-Auth-Token": squadAPI },
@@ -52,31 +63,34 @@ $.ajax({
     }
     // Sort Teams by Name
     var newTeamOrder = orderTeam.sort();
-
-    Object.keys(playerTest, fixturesTest, bannersTeam)
+    // Make The Array That will Hold all Information for Teams
+    Object.keys(playerTest, fixturesTest, bannersTeam, teamManagers, teamStadiums)
         .sort()
         .forEach(function(v, i) {
-            teamPlayerFixturesOrdered.push([v , playerTest[v] , fixturesTest[v] , bannersTeam[i]]);
+            allTeamInfoOrdered.push([v , playerTest[v] , fixturesTest[v] , bannersTeam[i] , teamManagers[i] , teamStadiums[i]]);
         });
 
 //  Log the array that holds the team info     [[ Team Name, Players , Fixtures] , .....]
-    console.log(teamPlayerFixturesOrdered);
+    console.log(allTeamInfoOrdered);
 
     // newTeamOrder.forEach(function (team) {
     //     $("#thisBeAllTheTeams").append("<li><a class='thisTeamClass'>" + team + "</a></li>");
     // });
     // console.log(newTeamOrder);
 
-    teamPlayerFixturesOrdered.forEach(function (team) {
+    allTeamInfoOrdered.forEach(function (team) {
         var aTagLink = $("<a>");
         var listItem = $("<li>");
 
         listItem.html(team[0]);
         listItem.addClass("thisTeamClass");
         listItem.attr({
-            "data-players":team[1],
-            "data-fixtures":team[2],
-            "data-banner":team[3]
+            "data-MyTeam": team[0],
+            "data-players": team[1],
+            "data-fixtures": team[2],
+            "data-banner": team[3],
+            "data-manager": team[4],
+            "data-stadium": team[5]
         });
 
         aTagLink.append(listItem);
@@ -88,13 +102,15 @@ $.ajax({
     });
 
     $(".thisTeamClass").on("click", function (){
-
+        // Store their team to reference in firebase
+        var lastTeamPicked = $(this).attr("data-MyTeam");
+        console.log(lastTeamPicked);
         // Empty on every click so that only selected teams info is displayed
         $(".teamPlayersTable").empty();
 
         //  Populate the players table
         playersUrl = $(this).attr("data-players");
-
+        // Separate Ajax call for players since they each have their own QueryURL
         $.ajax({
             headers: { "X-Auth-Token": squadAPI },
             url: playersUrl,
@@ -132,32 +148,23 @@ $.ajax({
         }).done(function(response) {
 
             for( var i = 0; i < response.fixtures.length;i++ )
-                if (response.fixtures.status === "TIMED") {
-                    nextFixtureDate.push(response.fixtures.date);
-                    homeTeamNameFixture.push(response.fixtures.homeTeamName);
-                    awayTeamNameFixture.push(response.fixtures.awayTeamName);
+                if (response.fixtures[i].status === "TIMED") {
+                    nextFixtureDate.push(response.fixtures[i].date);
+                    homeTeamNameFixture.push(response.fixtures[i].homeTeamName);
+                    awayTeamNameFixture.push(response.fixtures[i].awayTeamName);
+                    console.log(response.fixtures[i].date);
             }
-            console.log(homeTeamNameFixture);
 
-            //  All Players
-            var fixturesResp = response.fixtures[0];
-            console.log(fixturesResp);
-            //  Players Name
-            var playerFullName = response.players.name;
-            console.log(playerFullName);
-            //  Numbers
-            var numbersResp = response.players.jerseyNumber;
-            //  Position
-            var positionResp = response.players.position;
-
-            //  Loop over all players and make new rows and data dynamically and add to HTML
-            for(var j = 0; j < playersResp.length; j++) {
-                // $(".teamPlayersTable").append("<tr><td>" + playerFullName + "</td><td>" + numbersResp + "</td><td>" + positionResp + "</td></tr>" );
-            }
         });
+
         //  Insert Team Banner to Top
         var myBanner = $(this).attr("data-banner");
         $(".bannerImage").attr('src', myBanner);
+        //  Insert Manager For selected team
+//        var managerName = $(this).attr("data-manager");
+
+        //  Insert Stadium For Selected team
+//        var stadiumName = $(this).attr("data-stadium");
 
     });
 
