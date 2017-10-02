@@ -12,6 +12,8 @@ var fixturesUrl;
 var nextFixtureDate = [];
 var homeTeamNameFixture = [];
 var awayTeamNameFixture = [];
+var dateOfGame;
+var timeOfGame;
 
 // Banners Array to hold All Team Banners
 var bannersTeam = [ "assets/images/banners/Bournemouth.jpg", "assets/images/banners/Arsenal.jpg", "assets/images/banners/Brighton.jpg",
@@ -36,7 +38,7 @@ var teamStadiums = ["Vitality Stadium", "The Emirates", "The Amex", "Turf Moor",
 
 //****************** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   *********************************************
 var allTeamInfoOrdered = [];
-
+//**********************************************************************************************************************
 $.ajax({
     headers: { "X-Auth-Token": squadAPI },
     url: teamsQuery,
@@ -135,7 +137,6 @@ $.ajax({
             }
         });
 
-
         //  Now Populate the Fixture table
         fixturesUrl = $(this).attr("data-fixtures");
         // console.log(playersUrl);
@@ -153,6 +154,8 @@ $.ajax({
                     homeTeamNameFixture.push(response.fixtures[i].homeTeamName);
                     awayTeamNameFixture.push(response.fixtures[i].awayTeamName);
                     console.log(response.fixtures[i].date);
+                    dateOfGame = moment(response.fixtures[i].date).format("DD MMM YYYY");
+                    timeOfGame = moment(response.fixtures[i].date).format("hh:mm a");
             }
 
         });
@@ -163,11 +166,13 @@ $.ajax({
         //  Insert Manager For selected team
 //        var managerName = $(this).attr("data-manager");
 
-        //  Insert Stadium For Selected team
+        //  Insert Stadium name For Selected team
 //        var stadiumName = $(this).attr("data-stadium");
+        //  Insert Date and Time of next game
+//        $("#dateIDGoesHere).append(dateOfGame);
+//        $("#timeIDGoesHere).append(timeOfGame);
 
     });
 
 });
-
 
