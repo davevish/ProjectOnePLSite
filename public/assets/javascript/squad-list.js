@@ -13,6 +13,7 @@ var nextFixtureDate = [];
 var homeTeamNameFixture = [];
 var awayTeamNameFixture = [];
 
+var asd = ['<img class="bannerImage" src="assets/images/banners/Arsenal.jpg">'];
 // Banners Array to hold All Team Banners
 var bannersTeam = [ "assets/images/banners/Arsenal.jpg", "assets/images/banners/Bournemouth.jpg", "assets/images/banners/Brighton.jpg",
                     "assets/images/banners/Burnley.jpg", "assets/images/banners/CFCBanner.jpg", "assets/images/banners/CrystalPalace.jpg",
@@ -52,10 +53,10 @@ $.ajax({
     // Sort Teams by Name
     var newTeamOrder = orderTeam.sort();
 
-    Object.keys(playerTest, fixturesTest)
+    Object.keys(playerTest, fixturesTest, bannersTeam)
         .sort()
         .forEach(function(v, i) {
-            teamPlayerFixturesOrdered.push([v , playerTest[v] , fixturesTest[v]]);
+            teamPlayerFixturesOrdered.push([v , playerTest[v] , fixturesTest[v] , bannersTeam[i]]);
         });
 
 //  Log the array that holds the team info     [[ Team Name, Players , Fixtures] , .....]
@@ -74,7 +75,8 @@ $.ajax({
         listItem.addClass("thisTeamClass");
         listItem.attr({
             "data-players":team[1],
-            "data-fixtures":team[2]
+            "data-fixtures":team[2],
+            "data-banner":team[3]
         });
 
         aTagLink.append(listItem);
@@ -87,11 +89,10 @@ $.ajax({
 
     $(".thisTeamClass").on("click", function (){
 
-        $('.bannerImage').attr('src','assets/images/banners/Arsenal.jpg');
         // Empty on every click so that only selected teams info is displayed
         $(".teamPlayersTable").empty();
 
-        //  First Populate the players table
+        //  Populate the players table
         playersUrl = $(this).attr("data-players");
 
         $.ajax({
@@ -151,9 +152,12 @@ $.ajax({
 
             //  Loop over all players and make new rows and data dynamically and add to HTML
             for(var j = 0; j < playersResp.length; j++) {
-                $(".teamPlayersTable").append("<tr><td>" + playerFullName + "</td><td>" + numbersResp + "</td><td>" + positionResp + "</td></tr>" );
+                // $(".teamPlayersTable").append("<tr><td>" + playerFullName + "</td><td>" + numbersResp + "</td><td>" + positionResp + "</td></tr>" );
             }
-        })
+        });
+        //  Insert Team Banner to Top
+        var myBanner = $(this).attr("data-banner");
+        $(".bannerImage").attr('src', myBanner);
 
     });
 
