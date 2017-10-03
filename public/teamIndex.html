@@ -9,6 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="assets/javascript/jquery-3.2.1.js"></script>
 	<script src="assets/javascript/squad-list.js"></script>
+	<script src="assets/javascript/weather.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Exo+2:500" rel="stylesheet">
@@ -26,8 +27,8 @@
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden='true'></span></a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden='true'></span></a></li>
+					<li><a href="welcomePage.html"><span class="glyphicon glyphicon-home" aria-hidden='true'></span></a></li>
+					<li><a href="index.html"><span class="glyphicon glyphicon-remove" aria-hidden='true'></span></a></li>
 				</ul>
 				<h3 class="navbar-text navbar-right username">John Doe</h3>
 			</div>
@@ -75,9 +76,9 @@
 											<div class="panel-heading">General Information</div>
 											<div class="panel-body">
 												<ul class="list-group">
-													<li class="list-group-item">Cras justo odio</li>
-													<li class="list-group-item">Dapibus ac facilisis in</li>
-													<li class="list-group-item">Morbi leo risus</li>
+													<li class="list-group-item" id="manager">Manager</li>
+													<li class="list-group-item" id="stadiumName">Stadium</li>
+													<li class="list-group-item" id="established">Date</li>
 												</ul>
 											</div>
 										</div>
@@ -86,38 +87,25 @@
 										<div class="panel panel-default">
 											<div class="panel-heading">Home Stadium Weather Information</div>
 											<div class="panel-body">
-												Panel content
+												<img src="http://via.placeholder.com/250x200" id="stadiumImg">
+												<div class="wind"></div>
+												<div class="weather"></div>
+												<div class="temp"></div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="container col-sm-4 teamInfo">
-									<table class="table gameSchedule">
-										<thead>
-											<tr>
-												<th>Opponent</th>
-												<th>Home/Away</th>
-												<th>Days Away</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Arsenal</td>
-												<td>Home</td>
-												<td>3</td>
-											</tr>
-											<tr>
-												<td>Manchester United</td>
-												<td>Away</td>
-												<td>15</td>
-											</tr>
-											<tr>
-												<td>Tottenham</td>
-												<td>Away</td>
-												<td>20</td>
-											</tr>
-										</tbody>
-									</table>
+									<div class="panel panel-default">
+										<div class="panel-heading">Next Game</div>
+										<div class="panel-body">
+											<h2 id="homeTeamName">(Home)</h2>
+											<h2>VS</h2>
+											<h2 id="awayTeamName">(Away)</h2>
+											<h3 id="fixtureDate">Date</h3>
+											<h3 id="fixtureTime">Time</h3>
+										</div>
+									</div>
 								</div>
 								<div class="container col-sm-4 teamInfo">
 									<div class="row">
