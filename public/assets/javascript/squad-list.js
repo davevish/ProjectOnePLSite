@@ -118,8 +118,9 @@ $.ajax({
         console.log(lastTeamPicked);
         // Empty on every click so that only selected teams info is displayed
         $(".teamPlayersTable").empty();
-        $("#fixtureDate").html("");
-
+        homeTeamNameFixture = [];
+        awayTeamNameFixture = [];
+        $("#fixtureDate").empty();
         //  Populate the players table
         playersUrl = $(this).attr("data-players");
         // Separate Ajax call for players since they each have their own QueryURL
