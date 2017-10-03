@@ -161,8 +161,10 @@ $.ajax({
                     console.log(dateOfGame, timeOfGame);
                     //  Insert Date and Time of next game
                     $("#fixtureDate").append(dateOfGame);
-                    $("#fixtureTime").append(timeOfGame);
+                    $("#fixtureTime").html(timeOfGame);
                     // Insert Home and Away Teams
+                    $("#homeTeamName").html(homeTeamNameFixture + "<br>(Home)");
+                    $("#awayTeamName").html(awayTeamNameFixture + "<br>(Away)");
                     console.log(homeTeamNameFixture);
                     console.log(awayTeamNameFixture);
                 }
@@ -174,9 +176,11 @@ $.ajax({
         $(".bannerImage").attr('src', myBanner);
        //  //  Insert Manager For selected team
         var managerName = $(this).attr("data-manager");
+        $("#manager").html("Manager: " + managerName);
         console.log(managerName);
         //  Insert Stadium name For Selected team
         var stadiumName = $(this).attr("data-stadium");
+        $("#stadiumName").html("Stadium: " + stadiumName);
         console.log(stadiumName);
 
     });
