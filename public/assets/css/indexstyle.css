@@ -1,0 +1,22 @@
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+	background-image: url("../../assets/images/backgroundImages/welcomeImage.gif");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+h2{
+	text-align: center;
+	color: blue;
+}
+#username{
+	margin-bottom: 10px;
+}
+.form-group{
+	text-align: center;
+}
+#signInBttn{
+	margin-left: 50%;
+	margin-top: 25%;
+}
