@@ -35,6 +35,14 @@ var teamStadiums = ["Vitality Stadium", "The Emirates", "The Amex", "Turf Moor",
                     "St James' Park", "St Mary's Stadium", "Bet365 Stadium", "Libery Stadium", "White Hart Lane",
                     "Vicarage Road", "The Hawthorns", "Olympic Stadium London"];
 
+var teamStadiumImg = [  "assets/images/stadiumPics/afcBournemouth.jpg", "assets/images/stadiumPics/arsenal.jpg", "assets/images/stadiumPics/brighton.jpg",
+                        "assets/images/stadiumPics/burnley.jpg", "assets/images/stadiumPics/chelsea.jpg", "assets/images/stadiumPics/crystalPalace.jpg",
+                        "assets/images/stadiumPics/everton.jpg", "assets/images/stadiumPics/huddersfield.jpg", "assets/images/stadiumPics/leicesterCity.jpg",
+                        "assets/images/stadiumPics/liverpool.jpg", "assets/images/stadiumPics/manCity.jpg", "assets/images/stadiumPics/manUnited.jpg",
+                        "assets/images/stadiumPics/newcastle.jpg", "assets/images/stadiumPics/southampton.jpg", "assets/images/stadiumPics/stokeCity.jpg",
+                        "assets/images/stadiumPics/swanseaCity.jpg", "assets/images/stadiumPics/tottenham.jpg", "assets/images/stadiumPics/watford.jpg",
+                        "assets/images/stadiumPics/westBrom.jpg", "assets/images/stadiumPics/westHam.jpg"];
+
 
 //****************** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   *********************************************
 var allTeamInfoOrdered = [];
@@ -66,10 +74,10 @@ $.ajax({
     // Sort Teams by Name
     var newTeamOrder = orderTeam.sort();
     // Make The Array That will Hold all Information for Teams
-    Object.keys(playerTest, fixturesTest, bannersTeam, teamManagers, teamStadiums)
+    Object.keys(playerTest, fixturesTest, bannersTeam, teamManagers, teamStadiums, teamStadiumImg)
         .sort()
         .forEach(function(v, i) {
-            allTeamInfoOrdered.push([v , playerTest[v] , fixturesTest[v] , bannersTeam[i] , teamManagers[i] , teamStadiums[i]]);
+            allTeamInfoOrdered.push([v , playerTest[v] , fixturesTest[v] , bannersTeam[i] , teamManagers[i] , teamStadiums[i], teamStadiumImg[i]]);
         });
 
 //  Log the array that holds the team info     [[ Team Name, Players , Fixtures] , .....]
@@ -92,7 +100,8 @@ $.ajax({
             "data-fixtures": team[2],
             "data-banner": team[3],
             "data-manager": team[4],
-            "data-stadium": team[5]
+            "data-stadium": team[5],
+            "data-stadiumImg": team[6]
         });
 
         aTagLink.append(listItem);
@@ -161,8 +170,10 @@ $.ajax({
                     console.log(dateOfGame, timeOfGame);
                     //  Insert Date and Time of next game
                     $("#fixtureDate").append(dateOfGame);
-                    $("#fixtureTime").append(timeOfGame);
+                    $("#fixtureTime").html(timeOfGame);
                     // Insert Home and Away Teams
+                    $("#homeTeamName").html(homeTeamNameFixture + "<br>(Home)");
+                    $("#awayTeamName").html(awayTeamNameFixture + "<br>(Away)");
                     console.log(homeTeamNameFixture);
                     console.log(awayTeamNameFixture);
                 }
@@ -174,10 +185,15 @@ $.ajax({
         $(".bannerImage").attr('src', myBanner);
        //  //  Insert Manager For selected team
         var managerName = $(this).attr("data-manager");
+        $("#manager").html("Manager: " + managerName);
         console.log(managerName);
         //  Insert Stadium name For Selected team
         var stadiumName = $(this).attr("data-stadium");
+        $("#stadiumName").html("Stadium: " + stadiumName);
         console.log(stadiumName);
+        //  Insert Stadium Picture
+        var stadiumImg = $(this).attr("data-stadiumImg");
+        $("#stadiumImg").attr('src', stadiumImg);
 
     });
 
