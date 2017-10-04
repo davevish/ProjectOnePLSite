@@ -80,12 +80,12 @@ $.ajax({
     Object.keys(playerTest, fixturesTest, bannersTeam, teamManagers, teamStadiums, teamStadiumImg, establishedDate)
         .sort()
         .forEach(function(v, i) {
-            allTeamInfoOrdered.push([v , playerTest[v] , fixturesTest[v] , bannersTeam[i] , teamManagers[i] , teamStadiums[i], teamStadiumImg[i], establishedDate[i]]);
+            allTeamInfoOrdered.push([v ,    playerTest[v] , fixturesTest[v] , bannersTeam[i] , teamManagers[i] ,
+                                            teamStadiums[i], teamStadiumImg[i], establishedDate[i] , teamStadiumLocation[i]]);
         });
 
 //  Log the array that holds the team info     [[ Team Name, Players , Fixtures] , .....]
     console.log(allTeamInfoOrdered);
-
     // newTeamOrder.forEach(function (team) {
     //     $("#thisBeAllTheTeams").append("<li><a class='thisTeamClass'>" + team + "</a></li>");
     // });
@@ -106,7 +106,8 @@ $.ajax({
             "data-manager": team[4],
             "data-stadium": team[5],
             "data-stadiumImg": team[6],
-            "data-established": team[7]
+            "data-established": team[7],
+            "data-location": team[8]
         });
 
         aTagLink.append(listItem);
@@ -125,8 +126,7 @@ $.ajax({
 
         // Store their team to reference in firebase
         var lastTeamPicked = $(this).attr("data-MyTeam");
-        console.log(lastTeamPicked);
-        
+
         // Empty on every click so that only selected teams info is displayed
         $(".teamPlayersTable").empty();
         homeTeamNameFixture = [];
@@ -144,13 +144,11 @@ $.ajax({
         }).done(function(response) {
             //  All Players
             var playersResp = response.players;
-            console.log(playersResp);
 
             //  Loop over all players and make new rows and data dynamically and add to HTML
             for(var j = 0; j < playersResp.length; j++) {
                 //  Players Name
                 var playerFullName = response.players[j].name;
-                console.log(playerFullName);
                 //  Numbers
                 var numbersResp = response.players[j].jerseyNumber;
                 //  Position
@@ -187,8 +185,6 @@ $.ajax({
                     // Insert Home and Away Teams
                     $("#homeTeamName").html(homeTeamNameFixture + "<br>(Home)");
                     $("#awayTeamName").html(awayTeamNameFixture + "<br>(Away)");
-                    console.log(homeTeamNameFixture);
-                    console.log(awayTeamNameFixture);
                 }
 
         });
