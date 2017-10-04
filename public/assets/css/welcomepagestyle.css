@@ -10,23 +10,22 @@ body{
     height: 100%;
 }
 
-h1{
-	color: red;
-}
 .navbar-text{
 	margin-right: 20px;
 }
 .navbar{
+	background: url("../images/backgroundImages/egg_shell_@2X.png");
 	margin-bottom: 0 !important;
 }
 .username{
+	font-family: 'Allerta Stencil', sans-serif;
 	padding-right: 20px !important;
 }
 .meny {
 	display: none;
 	padding: 20px;
 	overflow: auto;
-	background: black;
+	background-image: url("../images/backgroundImages/tweed_@2X.png");
 	color: #eee;
 
 	-webkit-box-sizing: border-box;
@@ -83,7 +82,7 @@ h1{
 		     -o-transition: opacity 0.2s ease;
 		        transition: opacity 0.2s ease;
 	}
-ul {
+ul{
   list-style-type: none;
   text-align: center;
   padding: 0px;
@@ -93,4 +92,5 @@ li{
 	text-decoration: none;
 	font-family: 'Exo 2', sans-serif;
 	font-size: 16px;
+	color: rgb(255, 255, 255);
 }
