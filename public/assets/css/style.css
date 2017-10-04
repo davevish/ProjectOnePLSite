@@ -123,3 +123,6 @@ li{
 	height: 200px;
 	width: 250px;
 }
+.hideMePlease {
+	display: none;
+}

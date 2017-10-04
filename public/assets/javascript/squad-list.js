@@ -69,10 +69,10 @@ $.ajax({
         playerTest[teams] = SquadQuery;
         fixturesTest[teams] = FixturesQuery;
 
-        // listMySquad(SquadQuery);
     }
     // Sort Teams by Name
     var newTeamOrder = orderTeam.sort();
+
     // Make The Array That will Hold all Information for Teams
     Object.keys(playerTest, fixturesTest, bannersTeam, teamManagers, teamStadiums, teamStadiumImg)
         .sort()
@@ -88,6 +88,7 @@ $.ajax({
     // });
     // console.log(newTeamOrder);
 
+    //  Target variable that will hold everything and give each index a data attribute
     allTeamInfoOrdered.forEach(function (team) {
         var aTagLink = $("<a>");
         var listItem = $("<li>");
@@ -112,7 +113,10 @@ $.ajax({
 
     });
 
-    $(".thisTeamClass").on("click", function (){
+    $(".thisTeamClass").on("click", function (e){
+        $(".hideMePlease").css('display', 'block' );
+        $('body').css('background-image', 'url("../../assets/images/backgroundImages/cream_pixels_@2x.png")');
+
         // Store their team to reference in firebase
         var lastTeamPicked = $(this).attr("data-MyTeam");
         console.log(lastTeamPicked);
