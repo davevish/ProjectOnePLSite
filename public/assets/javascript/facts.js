@@ -48,6 +48,7 @@ $("#factButton").on("click", function() {
     shuffleMe();
     $("#gifOrFactsTarget").html(factsArray[0]);
     //  New fact Button
+    $("<button>")
     $(".modal-footer").on("click", function () {
         shuffleMe();
         $("#gifOrFactsTarget").html(factsArray[0]);
