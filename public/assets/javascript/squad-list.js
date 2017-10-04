@@ -115,7 +115,9 @@ $.ajax({
 
     $(".thisTeamClass").on("click", function (e){
         $(".hideMePlease").css('display', 'block' );
-        $('body,html').css('background-image', 'url("../public/assets/images/backgroundImages/cream_pixels_@2X.png")');
+        $('html,body').css('background-image', 'url("../public/assets/images/backgroundImages/creampixels.png")');
+        $('body').css('background-size', 'cover');
+        $('body').css('background-repeat', 'no-repeat');
 
         // Store their team to reference in firebase
         var lastTeamPicked = $(this).attr("data-MyTeam");

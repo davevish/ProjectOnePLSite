@@ -1,6 +1,7 @@
 html,
 body{
-	/*background-image: url("../images/backgroundImages/cream_pixels_@2x.png");*/
+	background-image: url("../images/backgroundImages/welcomebackground.jpg");
+	background-size: 110%;
 }
 .navbar-text{
 	margin-right: 20px;
