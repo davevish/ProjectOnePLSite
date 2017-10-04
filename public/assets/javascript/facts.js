@@ -27,16 +27,30 @@ var factsArray = [  "The first ever Premier League goal was scored by Brian Dean
                     "Striker Marcus Bent has played for the most EPL clubs, with eight",
                     "The Premier League ranks fourth among professional sports leagues in the world by revenue (4,865 € million)"];
 
-//  This will shuffle the facts array so they dont get the same fact first every time they come back to the site
+//  This function will shuffle the facts array so they dont get the same fact first every time they come back to the site
 function shuffleMe() {
     factsArray.sort(function () {
         return 0.5 - Math.random()
     });
 }
 //  Call the function to shuffle the array and check to see if it works
-shuffleMe();
-console.log(factsArray[0]);
+// console.log(factsArray[0]);
+//  Create On Click function so that facts now start appearing on page with click
+$("#factButton").on("click", function() {
 
-$("#gifButton").on("click", function() {
-    
+    $(".modal").css('display', 'block');
+    //  If they click the X it should close
+    $(".close").on("click",function () {
+        $(".modal").css('display', 'none');
+    });
+
+    //  Call the function to shuffle the array and append to modal
+    shuffleMe();
+    $("#gifOrFactsTarget").html(factsArray[0]);
+    //  New fact Button
+    $(".modal-footer").on("click", function () {
+        shuffleMe();
+        $("#gifOrFactsTarget").html(factsArray[0]);
+    });
+
 });
