@@ -127,3 +127,6 @@ li{
 .hideMePlease {
 	display: none;
 }
+.generalInformation li{
+	color: black;
+}
