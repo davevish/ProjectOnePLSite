@@ -115,7 +115,7 @@ $.ajax({
 
     $(".thisTeamClass").on("click", function (e){
         $(".hideMePlease").css('display', 'block' );
-        $('html,body').css('background-image', 'url("../public/assets/images/backgroundImages/creampixels.png")');
+        $('html,body').css('background-image', 'url("../public/assets/images/backgroundImages/cream_pixels_@2X.png")');
         $('body').css('background-size', 'cover');
         $('body').css('background-repeat', 'no-repeat');
 
