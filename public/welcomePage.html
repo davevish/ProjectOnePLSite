@@ -16,6 +16,7 @@
 	<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script>if( 'ontouchstart' in window ) window.location = 'mobile.html';</script>
+	<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/welcomepagestyle.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/stroll.css">
@@ -46,7 +47,6 @@
 			<li></li>
 		</ul>
 	</div>
-
 	<div class="meny-arrow"></div>
 
 	<div class="contents">
@@ -176,9 +176,6 @@
 		</div>
 	</div>
 
-
-
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/meny/1.4.0/meny.js"></script>
 	<script>
 		// Create an instance of Meny
@@ -207,16 +204,13 @@
 			// [optional] Use touch swipe events to open/close
 			touch: true
 		});
-
 		// API Methods:
 		// meny.open();
 		// meny.close();
 		// meny.isOpen();
-
 		// Events:
 		// meny.addEventListener( 'open', function(){ console.log( 'open' ); } );
 		// meny.addEventListener( 'close', function(){ console.log( 'close' ); } );
-
 		// Embed an iframe if a URL is passed in
 		if( Meny.getQuery().u && Meny.getQuery().u.match( /^http/gi ) ) {
 			var contents = document.querySelector( '.contents' );
