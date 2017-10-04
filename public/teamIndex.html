@@ -14,6 +14,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/momentjs/2.18.1/moment.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Exo+2:500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
 	<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script>if( 'ontouchstart' in window ) window.location = 'mobile.html';</script>
@@ -45,14 +46,18 @@
 			<li></li>
 		</ul>
 	</div>
-
 	<div class="meny-arrow"></div>
-
 	<div class="contents">
 		<div class="banner">
-			<img class="bannerImage" src="assets/images/banners/CFCBanner.jpg">
+			<img class="bannerImage" src="http://via.placeholder.com/1306x220">
 		</div>
-		
+		<div class="row">
+			<div class="btn-group" role="group" aria-label="...">
+				<button type="button" class="btn btn-default" id="gifButton">Gif's</button>
+				<button type="button" class="btn btn-default" id="factButton">Facts</button>
+				<button type="button" class="btn btn-default" id="gameButton">Game</button>
+			</div>
+		</div>
 		<div class="row">
 			<div class="container col-sm-12">
 				<div class="row">
@@ -68,7 +73,6 @@
 										</tr>
 									</thead>
 									<tbody class="teamPlayersTable">
-
 									</tbody>
 								</table>
 							</div>				
@@ -174,52 +178,49 @@
 			</div>
 		</div>
 	</div>
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/meny/1.4.0/meny.js"></script>
 	<script>
-			// Create an instance of Meny
-			var meny = Meny.create({
-				// The element that will be animated in from off screen
-				menuElement: document.querySelector( '.meny' ),
+		// Create an instance of Meny
+		var meny = Meny.create({
+			// The element that will be animated in from off screen
+			menuElement: document.querySelector( '.meny' ),
 
-				// The contents that gets pushed aside while Meny is active
-				contentsElement: document.querySelector( '.contents' ),
+			// The contents that gets pushed aside while Meny is active
+			contentsElement: document.querySelector( '.contents' ),
 
-				// [optional] The alignment of the menu (top/right/bottom/left)
-				position: Meny.getQuery().p || 'left',
+			// [optional] The alignment of the menu (top/right/bottom/left)
+			position: Meny.getQuery().p || 'left',
 
-				// [optional] The height of the menu (when using top/bottom position)
-				height: 200,
+			// [optional] The height of the menu (when using top/bottom position)
+			height: 200,
 
-				// [optional] The width of the menu (when using left/right position)
-				width: 260,
+			// [optional] The width of the menu (when using left/right position)
+			width: 260,
 
-				// [optional] Distance from mouse (in pixels) when menu should open
-				threshold: 40,
+			// [optional] Distance from mouse (in pixels) when menu should open
+			threshold: 40,
 
-				// [optional] Use mouse movement to automatically open/close
-				mouse: true,
+			// [optional] Use mouse movement to automatically open/close
+			mouse: true,
 
-				// [optional] Use touch swipe events to open/close
-				touch: true
-			});
+			// [optional] Use touch swipe events to open/close
+			touch: true
+		});
+		// API Methods:
+		// meny.open();
+		// meny.close();
+		// meny.isOpen();
+		// Events:
+		// meny.addEventListener( 'open', function(){ console.log( 'open' ); } );
+		// meny.addEventListener( 'close', function(){ console.log( 'close' ); } );
 
-			// API Methods:
-			// meny.open();
-			// meny.close();
-			// meny.isOpen();
-
-			// Events:
-			// meny.addEventListener( 'open', function(){ console.log( 'open' ); } );
-			// meny.addEventListener( 'close', function(){ console.log( 'close' ); } );
-
-			// Embed an iframe if a URL is passed in
-			if( Meny.getQuery().u && Meny.getQuery().u.match( /^http/gi ) ) {
-				var contents = document.querySelector( '.contents' );
-				contents.style.padding = '0px';
-				contents.innerHTML = '<div class="cover"></div><iframe src="'+ Meny.getQuery().u +'" style="width: 100%; height: 100%; border: 0; position: absolute;"></iframe>';
-			}
-		</script>
-		<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-	</body>
-	</html>
+		// Embed an iframe if a URL is passed in
+		if( Meny.getQuery().u && Meny.getQuery().u.match( /^http/gi ) ) {
+			var contents = document.querySelector( '.contents' );
+			contents.style.padding = '0px';
+			contents.innerHTML = '<div class="cover"></div><iframe src="'+ Meny.getQuery().u +'" style="width: 100%; height: 100%; border: 0; position: absolute;"></iframe>';
+		}
+	</script>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</body>
+</html>

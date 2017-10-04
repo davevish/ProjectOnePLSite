@@ -6,9 +6,13 @@ body {
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
-h2{
+.avgrund-popup h2{
+	font-family: 'Open Sans Condensed', sans-serif !important;
 	text-align: center;
 	color: blue;
+}
+a{
+	font-family: 'Open Sans Condensed', sans-serif !important;
 }
 #username{
 	margin-bottom: 10px;
@@ -17,9 +21,18 @@ h2{
 	text-align: center;
 }
 #signInBttn{
-	margin-left: 50%;
-	margin-top: 25%;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.6);
+	border: solid 1px black;
+	color: black;
+	position:absolute;
+	display:inline-block;
+	top:50%;
+	left:50%;
+	height:200px;
+	width:500px;
+	margin:-100px -250px;
 }
-.socialMedia{
-	margin-left: 20px;
+.avgrund-popup{
+	background-image: url("../images/backgroundImages/honey_im_subtle.png") !important;
 }
