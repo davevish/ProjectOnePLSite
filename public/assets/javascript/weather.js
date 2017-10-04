@@ -11,7 +11,7 @@ var teamStadiumLocation = [	"Bournemouth+BH7+7AF,+UK", "London+N7+7AJ,+UK", "Bri
 
 
 
-$(".thisTeamClass").on("click", function(){
+// $(".thisTeamClass").on("click", function(){
 		geoLocation = $(this).attr("data-location");
 		var queryURL = query + geoLocation + APIKey;
 		$.ajax({
@@ -37,5 +37,6 @@ $(".thisTeamClass").on("click", function(){
 		});
 		// console.log("this");
 		// console.log();
-});
+// });
 console.log("this");
+

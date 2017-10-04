@@ -125,7 +125,10 @@ $.ajax({
         $('body').css('background-repeat', 'no-repeat');
 
         // Store their team to reference in firebase
-        var lastTeamPicked = $(this).attr("data-MyTeam");
+        var team = $(this).attr("data-MyTeam");
+        PLdatabase.ref().push({
+            team: team
+        });
 
         // Empty on every click so that only selected teams info is displayed
         $(".teamPlayersTable").empty();
@@ -206,6 +209,14 @@ $.ajax({
         //  Insert established date
         var dateEST = $(this).attr("data-established");
         $("#established").html("Established in " + dateEST);
+
+        $(".temp").empty();
+        $(".weather").empty();
+        $(".wind").empty();
+
+        $(".temp").html("Temperature: " + response2.main.temp + " F");
+        $(".weather").html(response2.weather[0].description);
+        $(".wind").html("Wind Speed: " + response2.wind.speed + " mph");
     });
 
 });
