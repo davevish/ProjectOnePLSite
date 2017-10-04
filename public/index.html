@@ -13,6 +13,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/indexstyle.css">
 	<link rel="stylesheet" href="assets/css/avgrund.css">
+	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 	<script>
 		function openDialog() {
 			Avgrund.show( "#default-popup" );
@@ -29,9 +30,9 @@
 			<h2>Enter Username</h2>
 			<form>
 				<div class="form-group">
-					<input type="text" class="form-control uname" id="username" placeholder="Username">
-					<a href="welcomePage.html" class="btn btn-info" role="button">Register</a>
-					<a href="welcomePage.html" class="btn btn-info" role="button">Sign In (Existing User)</a>
+					<input type="text" class="form-control uname" id="username" placeholder="Username (Must include a number ex: Christiano7)">
+					<a href="welcomePage.html" class="btn btn-info" id="registerButton" role="button">Register</a>
+					<a href="welcomePage.html" class="btn btn-info" id="submitButton" role="button">Sign In (Existing User)</a>
 				</div>
 			</form>
 		</div>
