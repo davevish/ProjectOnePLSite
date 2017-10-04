@@ -2,7 +2,6 @@ html,
 body{
 	background-image: url("../images/backgroundImages/cream_pixels_@2x.png");
 }
-
 .navbar-text{
 	margin-right: 20px;
 }
@@ -56,48 +55,48 @@ body{
 	border: 10px solid transparent;
 
 	-webkit-transition: opacity 0.4s ease 0.4s;
-	   -moz-transition: opacity 0.4s ease 0.4s;
-	    -ms-transition: opacity 0.4s ease 0.4s;
-	     -o-transition: opacity 0.4s ease 0.4s;
-	        transition: opacity 0.4s ease 0.4s;
+		-moz-transition: opacity 0.4s ease 0.4s;
+		-ms-transition: opacity 0.4s ease 0.4s;
+			-o-transition: opacity 0.4s ease 0.4s;
+			transition: opacity 0.4s ease 0.4s;
 }
-	.meny-left .meny-arrow {
-		left: 14px;
-		top: 50%;
-		margin-top: -16px;
-		border-left: 16px solid #333;
-	}
-	.meny-right .meny-arrow {
-		right: 14px;
-		top: 50%;
-		margin-top: -16px;
-		border-right: 16px solid #333;
-	}
-	.meny-top .meny-arrow {
-		left: 50%;
-		top: 14px;
-		margin-left: -16px;
-		border-top: 16px solid #333;
-	}
-	.meny-bottom .meny-arrow {
-		left: 50%;
-		bottom: 14px;
-		margin-left: -16px;
-		border-bottom: 16px solid #333;
-	}
-	.meny-active .meny-arrow {
-		opacity: 0;
+.meny-left .meny-arrow {
+	left: 14px;
+	top: 50%;
+	margin-top: -16px;
+	border-left: 16px solid #333;
+}
+.meny-right .meny-arrow {
+	right: 14px;
+	top: 50%;
+	margin-top: -16px;
+	border-right: 16px solid #333;
+}
+.meny-top .meny-arrow {
+	left: 50%;
+	top: 14px;
+	margin-left: -16px;
+	border-top: 16px solid #333;
+}
+.meny-bottom .meny-arrow {
+	left: 50%;
+	bottom: 14px;
+	margin-left: -16px;
+	border-bottom: 16px solid #333;
+}
+.meny-active .meny-arrow {
+	opacity: 0;
 
-		-webkit-transition: opacity 0.2s ease;
-		   -moz-transition: opacity 0.2s ease;
-		    -ms-transition: opacity 0.2s ease;
-		     -o-transition: opacity 0.2s ease;
-		        transition: opacity 0.2s ease;
-	}
+	-webkit-transition: opacity 0.2s ease;
+		-moz-transition: opacity 0.2s ease;
+		-ms-transition: opacity 0.2s ease;
+			-o-transition: opacity 0.2s ease;
+			transition: opacity 0.2s ease;
+}
 ul {
-  list-style-type: none;
-  text-align: center;
-  padding: 0px;
+	list-style-type: none;
+	text-align: center;
+	padding: 0px;
 }
 li{
 	padding-top: 10px;
@@ -120,7 +119,6 @@ li{
 .latestPost{
 	margin-bottom: 10px;
 }
-
 #stadiumImg {
 	height: 200px;
 	width: 250px;
