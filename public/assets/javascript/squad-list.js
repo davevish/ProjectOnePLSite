@@ -43,6 +43,9 @@ var teamStadiumImg = [  "assets/images/stadiumPics/afcBournemouth.jpg", "assets/
                         "assets/images/stadiumPics/swanseaCity.jpg", "assets/images/stadiumPics/tottenham.jpg", "assets/images/stadiumPics/watford.jpg",
                         "assets/images/stadiumPics/westBrom.jpg", "assets/images/stadiumPics/westHam.jpg"];
 
+var establishedDate = [ "1899", "1886", "1901", "1882", "1905", "1905", "1878", "1908", "1884", "1892", "1880", "1878", "1892",
+                        "1885", "1863", "1912", "1882", "1881", "1878", "1895"];
+
 
 //****************** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   *********************************************
 var allTeamInfoOrdered = [];
@@ -74,10 +77,10 @@ $.ajax({
     var newTeamOrder = orderTeam.sort();
 
     // Make The Array That will Hold all Information for Teams
-    Object.keys(playerTest, fixturesTest, bannersTeam, teamManagers, teamStadiums, teamStadiumImg)
+    Object.keys(playerTest, fixturesTest, bannersTeam, teamManagers, teamStadiums, teamStadiumImg, establishedDate)
         .sort()
         .forEach(function(v, i) {
-            allTeamInfoOrdered.push([v , playerTest[v] , fixturesTest[v] , bannersTeam[i] , teamManagers[i] , teamStadiums[i], teamStadiumImg[i]]);
+            allTeamInfoOrdered.push([v , playerTest[v] , fixturesTest[v] , bannersTeam[i] , teamManagers[i] , teamStadiums[i], teamStadiumImg[i], establishedDate[i]]);
         });
 
 //  Log the array that holds the team info     [[ Team Name, Players , Fixtures] , .....]
@@ -102,7 +105,8 @@ $.ajax({
             "data-banner": team[3],
             "data-manager": team[4],
             "data-stadium": team[5],
-            "data-stadiumImg": team[6]
+            "data-stadiumImg": team[6],
+            "data-established": team[7]
         });
 
         aTagLink.append(listItem);
@@ -122,11 +126,13 @@ $.ajax({
         // Store their team to reference in firebase
         var lastTeamPicked = $(this).attr("data-MyTeam");
         console.log(lastTeamPicked);
+        
         // Empty on every click so that only selected teams info is displayed
         $(".teamPlayersTable").empty();
         homeTeamNameFixture = [];
         awayTeamNameFixture = [];
         $("#fixtureDate").empty();
+
         //  Populate the players table
         playersUrl = $(this).attr("data-players");
         // Separate Ajax call for players since they each have their own QueryURL
@@ -201,7 +207,9 @@ $.ajax({
         //  Insert Stadium Picture
         var stadiumImg = $(this).attr("data-stadiumImg");
         $("#stadiumImg").attr('src', stadiumImg);
-
+        //  Insert established date
+        var dateEST = $(this).attr("data-established");
+        $("#established").html("Established in " + dateEST);
     });
 
 });
