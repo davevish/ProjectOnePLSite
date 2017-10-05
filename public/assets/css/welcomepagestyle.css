@@ -80,6 +80,9 @@ body{
 			-o-transition: opacity 0.2s ease;
 			transition: opacity 0.2s ease;
 }
+.panel-heading{
+	background: url("../images/backgroundImages/egg_shell_@2X.png") !important;
+}
 ul{
 	list-style-type: none;
 	text-align: center;
@@ -113,7 +116,7 @@ li{
 }
 
 .modal-content {
-	background-color: #bbbbcc;
+	background: url("../images/backgroundImages/cream_pixels_@2X.jpg");
 	margin: auto;
 	padding: 20px;
 	border: 1px solid #888;
@@ -151,7 +154,7 @@ li{
 }
 
 .factImgButton {
-	background: #b6e8f1;
+	background: url("../images/backgroundImages/cream_pixels_@2X.jpg");
 	font-family: Chalkboard;
 	font-size: 18px;
 }
