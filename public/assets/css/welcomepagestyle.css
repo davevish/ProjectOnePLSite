@@ -3,7 +3,7 @@ html{
 }
 body{
 	background-image: url("../../assets/images/backgroundImages/welcomebackground.jpg");
-	background-repeat: no-repeat;
+	/*background-repeat: no-repeat;*/
 	background-size: cover;
 	height: 110%;
 }
