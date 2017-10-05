@@ -21,7 +21,7 @@ $("#registerButton").on("click", function(event){
 
 	user = $("#username").val().trim();
 
-	var PLdatabase.ref().push({
+	PLdatabase.ref().push({
 	username: user,
 	lastTeamPicked: team,
 	goals: goals,

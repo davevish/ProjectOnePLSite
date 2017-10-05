@@ -82,6 +82,7 @@ var searchParam=[];
 
 //  Create on click function and link to HTML page
 $("#gifButton").on("click", function () {
+    $("#gifOrFactsTarget").empty();
     //  Set the display so that only the Button you want appears on the page
     $("#modalButton").css('display', 'none');
     $("#modalButton1").css('display', 'block');
@@ -89,6 +90,8 @@ $("#gifButton").on("click", function () {
     $("#gifOrFactsTarget").empty();
     //  Close when X is clicked in corner
     $(".close").on("click", function() {
+        searchParam = [];
+        $("#gifOrFactsTarget").empty();
         $(".modal").css('display', 'none');
     });
     //  Create Text for Modal Header/ Footer and empty what was there before
@@ -103,7 +106,6 @@ $("#gifButton").on("click", function () {
 
     //  Call the function to display gifs
     displayGifs();
-    $("#gifOrFactsTarget").empty();
     $("#modalButton1").on("click", function () {
         displayGifs();
     });
