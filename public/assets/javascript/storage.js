@@ -22,12 +22,20 @@ $("#registerButton").on("click", function(event){
 
 	user = $("#username").val().trim();
 
+	console.log(user);
+
 	PLdatabase.ref().push({
-	username: user,
-	lastTeamPicked: team,
-	goals: goals,
-	blocks: blocks
+		username: user,
+		lastTeamPicked: "",
+		goals: "",
+		blocks: ""
 
 	});
 
+	window.location.href="welcomePage.html";
+
+	PLdatabase.ref().on("child_added", function(childSnapshot){
+		console.log(childSnapshot.val().username);
+		$(".welcomeUsername").append(childSnapshot.val().username);
+	});
 });
