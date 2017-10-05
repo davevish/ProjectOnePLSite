@@ -46,6 +46,13 @@ var teamStadiumImg = [  "assets/images/stadiumPics/afcBournemouth.jpg", "assets/
 var establishedDate = [ "1899", "1886", "1901", "1882", "1905", "1905", "1878", "1908", "1884", "1892", "1880", "1878", "1892",
                         "1885", "1863", "1912", "1882", "1881", "1878", "1895"];
 
+var twitterHandle = ["@afcbournemouth","@Arsenal","@OfficialBHAFC","@BurnleyOfficial","@ChelseaFC","@CPFC",
+                     "@everton","@htafcdotcom","@LCFC","@LFC","@mancity","@ManUtd","@NUFC","@SouthamptonFC",
+                     "@stokecity","@SwansOfficial","@spursofficial","@WatfordFC","@WBA","@westhamutd"] 
+
+var instaHandle =  ["@officialafcb","@arsenal","@Officialbhafc","@burnleyofficial","@Chelseafc","@cpfc",
+                    "@everton","@htafcinstagram","@lcfc","@liverpoolfc","@mancity","@manchesterunited","@nufc",
+                    "@southamptonfc","@stokecity","@swansofficial","@spursofficial","@watfordofficial","@wba","@westham"]
 
 //****************** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   *********************************************
 var allTeamInfoOrdered = [];
@@ -82,7 +89,7 @@ $.ajax({
         .forEach(function(v, i) {
             allTeamInfoOrdered.push([v ,    playerTest[v] , fixturesTest[v] , bannersTeam[i] , teamManagers[i] ,
                                             teamStadiums[i], teamStadiumImg[i], establishedDate[i] , teamStadiumLocation[i],
-                                            twitterhandle[i] , instahandle[i]]);
+                                            twitterHandle[i] , instaHandle[i]]);
         });
 
 //  Log the array that holds the team info     [[ Team Name, Players , Fixtures] , .....]
@@ -217,7 +224,9 @@ $.ajax({
         // $(".wind").append("Wind Speed: " + response2.wind.speed + " mph");
         //
 
-    //    Twitter and Instagram ajax calls here
+        // Twitter and Instagram ajax calls here
+        twitterHandle = $(this).attr("data-twitter");
+        InstaHandle = $(this).attr("data-insta");
 
     });
 
