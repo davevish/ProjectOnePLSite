@@ -5,3 +5,7 @@
     margin:.20%;
     background-color: #1E1E1E;
 }
+.username{
+	padding-right: 20px !important;
+	font-family: 'Allerta Stencil', sans-serif;
+}

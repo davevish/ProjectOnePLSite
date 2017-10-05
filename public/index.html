@@ -2,149 +2,53 @@
 <html>
 <head>
 	<title>Premier League Fan Page</title>
+	<!-- Initialize the webpage -->
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="assets/javascript/jquery-3.2.1.js"></script>
-	<script src="assets/javascript/squad-list.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Bootstrap styling and bootstrap specific javascript -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Local jQuery file -->
+	<script src="assets/javascript/jquery-3.2.1.js"></script>
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+	<!-- Pop out animation styling -->
+	<link rel="stylesheet" href="assets/css/avgrund.css">
+	<!-- Webpage styling -->
+	<link rel="stylesheet" href="assets/css/indexstyle.css">
+	<!-- Firebase Database -->
+	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+	<!-- Function for the popup and popout -->
+	<script>
+		function openDialog() {
+			Avgrund.show( "#default-popup" );
+		}
+		function closeDialog() {
+			Avgrund.hide();
+		}
+	</script>
 </head>
+
 <body>
-
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden='true'></span></a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden='true'></span></a></li>
-					<div class="btn-group">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Teams <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Team 1</a></li>
-							<li><a href="#">Team 2</a></li>
-							<li><a href="#">Team 3</a></li>
-						</ul>
-					</div>
-				</ul>
-				<p class="navbar-text navbar-right">John Doe</p>
-			</div>
-		</div>
-	</nav>
-	
-	<div class="banner">
-		<img class="bannerImage" src="CFCBanner.jpg">
-		<div class="btn-group btn-group-justified" role="group" aria-label="...">
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default">GIF's</button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default">Images</button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default">Facts</button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default">Game</button>
-			</div>
-		</div>
-	</div>
-
-	<div class="row teamContent">
-		<div class="container col-sm-12">
-			<div class="container col-sm-3 squadList">
-				<table class="table table-condensed">
-					<thead>
-						<tr>
-							<th>Player</th>
-							<th>Position</th>
-							<th>Number</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>7</td>
-						</tr>
-					</tbody>
-				</table>				
-			</div>
-			<div class="container col-sm-9">
-				<div class="container col-sm-4 teamInfo">
-					<div class="well well-sm">Team Info</div>
+	<!-- This div adds things inside it to the pop out area -->
+	<aside id="default-popup" class="avgrund-popup">
+		<div>
+			<h2>Enter Username</h2>
+			<form>
+				<div class="form-group">
+					<input type="text" class="form-control uname" id="username" placeholder="    Must include a number ex: Christiano7">
+					<a href="welcomePage.html" class="btn btn-info" id="registerButton" role="button">Register</a>
+					<a href="welcomePage.html" class="btn btn-info" id="submitButton" role="button">Sign In (Existing User)</a>
 				</div>
-				<div class="container col-sm-4 teamInfo">
-					<div class="well well-sm">Next Games</div>
-				</div>
-				<div class="container col-sm-4 teamInfo">
-					<div class="well well-sm">Social Media</div>
-				</div>
-			</div>
+			</form>
 		</div>
-		<div class="container col-sm-12 newsArticles">
-			<div class="well well-lg">News Articles</div>
-		</div>
-	</div>
+	</aside>
+	<article class="avgrund-contents" id="signInBttn">
+		<a class="btn btn-info initialSignInButton" role="button" onclick="javascript:openDialog();" style="z-index: 1;">Sign In</a>
+	</article>
+	<div class="avgrund-cover"></div>
+	<script type="text/javascript" src="assets/javascript/avgrund.js"></script>
 </body>
 </html>
