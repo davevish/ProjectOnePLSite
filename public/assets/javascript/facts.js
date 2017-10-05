@@ -37,18 +37,21 @@ function shuffleMe() {
 // console.log(factsArray[0]);
 //  Create On Click function so that facts now start appearing on page with click
 $("#factButton").on("click", function() {
-
+    //  Set the display so that only the Button you want appears on the page
+    $("#modalButton1").css('display', 'none');
+    $("#modalButton").css('display', 'block');
     $(".modal").css('display', 'block');
     //  If they click the X in the corner it should close
     $(".close").on("click",function () {
         $(".modal").css('display', 'none');
     });
     //  Create Text for Modal Header/Footer and empty what was there before
-    var modalHeader = $("<h3>").html("Fun Fact");
-    var modalFooter = $("<button>").html("Click For Another Fact");
+    var modalHeader = $("<h3 class='factGifHead'>").append("Fun Fact");
+    var modalFooter = $("<button class='factImgButton'>").html("Click For Fact");
 
     $("#h3Header").html("");
     $("#modalButton").html("");
+    $("#gifOrFactsTarget").html("");
 
     $("#h3Header").append(modalHeader);
     $("#modalButton").append(modalFooter);
@@ -56,7 +59,9 @@ $("#factButton").on("click", function() {
     shuffleMe();
     $("#gifOrFactsTarget").html(factsArray[0]);
     //  New fact Button
-    $(".modal-footer").on("click", function () {
+    $("#modalButton").on("click", function () {
+        modalHeader = $("<h3 class='factGifHead'>").html("Fun Fact");
+        modalFooter = $("<button class='factImgButton'>").html("Click For Fact");
         shuffleMe();
         $("#gifOrFactsTarget").html(factsArray[0]);
     });
@@ -67,36 +72,65 @@ $("#factButton").on("click", function() {
 //  related to what index we land on
 
 var searchMeArray = [   "EPL", "EPL funny", "Soccer funny", "Soccer Team Funny", "Soccer Dive Funny",
-    "Soccer Fall", "Soccer Fall Funny", "Soccer Fake", "Soccer Juke", "Soccer Fail"];
+    "Soccer Fall", "Soccer Fall Funny", "Soccer Fake", "Soccer Juke", "Soccer Fail", "premier league",
+    "england Soccer", "soccer dance", "soccer celebration", "soccer celebration funny", "soccer meme",
+    "soccer meme funny", "penalty kick", "penalty kick funny", "penalty kick fail"];
 
 var keyLim = "&limit=5&api_key=p61cW0ySxTXCRmZWsUKICmpiMZqEKYjc";
 
+var searchParam=[];
+
 //  Create on click function and link to HTML page
 $("#gifButton").on("click", function () {
-
+    //  Set the display so that only the Button you want appears on the page
+    $("#modalButton").css('display', 'none');
+    $("#modalButton1").css('display', 'block');
     $(".modal").css('display', 'block');
+    $("#gifOrFactsTarget").empty();
+    //  Close when X is clicked in corner
     $(".close").on("click", function() {
         $(".modal").css('display', 'none');
     });
     //  Create Text for Modal Header/ Footer and empty what was there before
-    var modalHeader = $("<h3>").html("Some Random Gifs For You");
-    var modalFooter = $("<button>").html("Click For Some More Gifs");
+    var modalHeader = $("<h3 class='factGifHead'>").html("Some Random Gifs For You");
+    var modalFooter = $("<button class='factImgButton'>").html("Click For A Gifs");
+
     $("#h3Header").html("");
-    $("#modalButton").html("");
+    $("#modalButton1").html("");
+
     $("#h3Header").append(modalHeader);
-    $("#modalButton").append(modalFooter);
+    $("#modalButton1").append(modalFooter);
+
+    //  Call the function to display gifs
+    displayGifs();
+    $("#gifOrFactsTarget").empty();
+    $("#modalButton1").on("click", function () {
+        displayGifs();
+    });
+
+function displayGifs() {
+    $("#gifOrFactsTarget").empty();
+    searchParam = [];
     //    Randomize the search from the searchMeArray and assign it a variable
-    var searchParam = searchMeArray[Math.floor(Math.random() * searchMeArray.length)];
-    console.log(searchParam);
-
-
+    searchParam = searchMeArray[Math.floor(Math.random() * searchMeArray.length)];
     var gifyQueryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchParam + keyLim;
     $.ajax({
         url: gifyQueryURL,
         method: "GET"
     }).done(function(response) {
-        console.log(response);
+        console.log(response.data);
+    //    Create a variable that will hold the the data to use in for loop
+        var results = response.data;
+    //    for Loop to cycle and give each an IMG tag
+        for (var k = 0; k < results.length; k++) {
+            var gifimg = $("<img>");
+            gifimg.addClass("gifImgStyle");
+            gifimg.attr('src', results[k].images.original.url);
+            $("#gifOrFactsTarget").append(gifimg);
+        }
     })
+}
+
 
 
 
