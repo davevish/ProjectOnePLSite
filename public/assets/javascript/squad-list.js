@@ -121,7 +121,7 @@ $.ajax({
     $(".thisTeamClass").on("click", function (e){
         $(".hideMePlease").css('display', 'block' );
         $('html,body').css('background-image', 'url("../public/assets/images/backgroundImages/cream_pixels_@2X.jpg")');
-
+        $('.meny').css('min-height', '1398px');
         // Store their team to reference in firebase
         var team = $(this).attr("data-MyTeam");
 
