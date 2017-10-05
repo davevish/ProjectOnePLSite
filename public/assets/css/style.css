@@ -27,6 +27,13 @@ body{
 	margin-left: 41%;
 	margin-bottom: 5px;
 }
+.table-condensed{
+	background: white;
+	border: solid 1px black;
+	display: block;
+	height: 577px;
+	overflow-y: scroll;
+}
 .table-condensed th{
 	text-align: center;
 }

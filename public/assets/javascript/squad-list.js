@@ -120,15 +120,10 @@ $.ajax({
 
     $(".thisTeamClass").on("click", function (e){
         $(".hideMePlease").css('display', 'block' );
-        $('html,body').css('background-image', 'url("../public/assets/images/backgroundImages/cream_pixels_@2X.png")');
-        $('body').css('background-size', 'cover');
-        $('body').css('background-repeat', 'no-repeat');
+        $('html,body').css('background-image', 'url("../public/assets/images/backgroundImages/cream_pixels_@2X.jpg")');
 
         // Store their team to reference in firebase
         var team = $(this).attr("data-MyTeam");
-        PLdatabase.ref().push({
-            team: team
-        });
 
         // Empty on every click so that only selected teams info is displayed
         $(".teamPlayersTable").empty();
@@ -221,3 +216,6 @@ $.ajax({
 
 });
 
+PLdatabase.ref().push({
+            team: team
+        });
