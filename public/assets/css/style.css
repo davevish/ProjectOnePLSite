@@ -28,11 +28,12 @@ body{
 	text-align: center;
 	margin-bottom: 5px;
 }
+.squadHeading{
+	text-align: center;
+}
 .table-condensed{
-	background: white;
-	border: solid 1px black;
 	display: block;
-	height: 577px;
+	height: 485px;
 	overflow-y: scroll;
 }
 .table-condensed th{

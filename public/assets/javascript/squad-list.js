@@ -1,3 +1,6 @@
+// Inesrt username on page first
+
+
 var squadAPI = "97dcf4541b834e55a85220bc5957afa1";
 var teamsQuery = "https://api.football-data.org/v1/competitions/445/teams";
 
@@ -191,7 +194,7 @@ $.ajax({
                     homeTeamNameFixture.push(response.fixtures[i].homeTeamName);
                     awayTeamNameFixture.push(response.fixtures[i].awayTeamName);
                     console.log(response.fixtures[i].date);
-                    dateOfGame = moment(response.fixtures[i].date).format("MMMM DD YYYY");
+                    dateOfGame = moment(response.fixtures[i].date).format("MMMM DD, YYYY");
                     timeOfGame = moment(response.fixtures[i].date).format("hh:mm a");
                     console.log(dateOfGame, timeOfGame);
                     //  Insert Date and Time of next game
