@@ -1,5 +1,5 @@
 var squadAPI = "97dcf4541b834e55a85220bc5957afa1";
-var teamsQuery = "http://api.football-data.org/v1/competitions/445/teams";
+var teamsQuery = "https://api.football-data.org/v1/competitions/445/teams";
 
 var SquadQuery;
 var orderTeam = [];
@@ -231,6 +231,7 @@ $.ajax({
     });
 
 });
+
 
 PLdatabase.ref().push({
     team: team
