@@ -228,8 +228,8 @@ $.ajax({
         //
 
         // Twitter and Instagram ajax calls here
-        twitterHandle = $(this).attr("data-twitter");
-        InstaHandle = $(this).attr("data-insta");
+        var twitter = $(this).attr("data-twitter");
+        var instagram = $(this).attr("data-insta");
 
     });
 
