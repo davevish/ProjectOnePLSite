@@ -2,13 +2,8 @@ html{
 	height: 100%;
 }
 body{
-<<<<<<< HEAD
-	background-image: url("../../assets/images/backgroundImages/welcomebackground.jpg");/*
-	background-repeat: no-repeat;*/
-=======
 	background-image: url("../../assets/images/backgroundImages/welcomebackground.jpg");
 	/*background-repeat: no-repeat;*/
->>>>>>> e48dc9f1d1db653da4ac81426df8f7eee39417ac
 	background-size: cover;
 	height: 110%;
 }
@@ -85,6 +80,9 @@ body{
 			-o-transition: opacity 0.2s ease;
 			transition: opacity 0.2s ease;
 }
+.panel-heading{
+	background: url("../images/backgroundImages/egg_shell_@2X.png") !important;
+}
 ul{
 	list-style-type: none;
 	text-align: center;
@@ -118,7 +116,7 @@ li{
 }
 
 .modal-content {
-	background-color: #bbbbcc;
+	background: url("../images/backgroundImages/egg_shell_@2X.png");
 	margin: auto;
 	padding: 20px;
 	border: 1px solid #888;
@@ -156,7 +154,7 @@ li{
 }
 
 .factImgButton {
-	background: #b6e8f1;
+	background: url("../images/backgroundImages/egg_shell_@2X.png");
 	font-family: Chalkboard;
 	font-size: 18px;
 }
