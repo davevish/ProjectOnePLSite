@@ -2,10 +2,13 @@
 <html>
 <head>
 	<title>Premier League Fan Page</title>
+	<!-- Initalize the window -->
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- jQuery and JS Files -->
 	<script src="assets/javascript/jquery-3.2.1.js"></script>
 	<script src="assets/javascript/squad-list.js"></script>
 	<script src="assets/javascript/weather.js"></script>
@@ -13,16 +16,21 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/momentjs/2.18.1/moment.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Exo+2:500" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
 	<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Exo+2:500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+	<!-- Animation function -->
 	<script>if( 'ontouchstart' in window ) window.location = 'mobile.html';</script>
+	<!-- Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/stroll.css">
+	<!-- Firebase -->
 	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 </head>
 <body>
+	<!-- navbar -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -42,12 +50,14 @@
 			</div>
 		</div>
 	</nav>
+	<!-- Sidebar and contents -->
 	<div class="meny">
 		<h2>Teams</h2>
 		<ul id="thisBeAllTheTeams">
 			<li></li>
 		</ul>
 	</div>
+	<!-- Page Contents -->
 	<div class="meny-arrow"></div>
 	<div class="contents">
 		<div class="banner">
@@ -66,6 +76,7 @@
 					<div class="container col-sm-12">
 						<div class="container col-sm-3 squadList">
 							<div class="box">
+								<!-- Squad List Table -->
 								<table class="table table-condensed">
 									<thead>
 										<tr>
@@ -81,6 +92,7 @@
 						</div>
 						<div class="container col-sm-9">
 							<div class="box">
+								<!-- General Team Info -->
 								<div class="container col-sm-4 teamInfo">
 									<div class="row generalInformation">
 										<div class="panel panel-default">
@@ -94,6 +106,7 @@
 											</div>
 										</div>
 									</div>
+									<!-- Weather Info -->
 									<div class="row weatherInformation">
 										<div class="panel panel-default">
 											<div class="panel-heading">Home Stadium Weather Information</div>
@@ -106,6 +119,7 @@
 										</div>
 									</div>
 								</div>
+								<!-- Next Game Data -->
 								<div class="container col-sm-4 teamInfo">
 									<div class="panel panel-default">
 										<div class="panel-heading">Next Game</div>
@@ -118,6 +132,7 @@
 										</div>
 									</div>
 								</div>
+								<!-- Social media -->
 								<div class="container col-sm-4 teamInfo">
 									<div class="row">
 										<ul class="nav nav-pills socialMedia" style="margin-left: 80px";>
@@ -135,6 +150,7 @@
 				</div>
 				<div class="row">
 					<div class="container col-sm-12">
+						<!-- News RSS feed Widget -->
 						<div class="container col-sm-12 newsArticles">
 							<div class="list-group">
 								<a href="#" class="list-group-item">
@@ -149,6 +165,7 @@
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/meny/1.4.0/meny.js"></script>
+	<!-- This script makes the sidebar and animation work on this page -->
 	<script>
 		// Create an instance of Meny
 		var meny = Meny.create({
