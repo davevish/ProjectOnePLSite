@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Premier League Fan Page</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="assets/javascript/jquery-3.2.1.js"></script>
+	<script src="assets/javascript/weather.js"></script>
+	<script src="assets/javascript/squad-list.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/momentjs/2.18.1/moment.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Exo+2:500" rel="stylesheet">
+	<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script> if( 'ontouchstart' in window ) window.location = 'mobile.html';</script>
+	<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/css/welcomepagestyle.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/stroll.css">
+	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="welcomePage.html"><span class="glyphicon glyphicon-home" aria-hidden='true'></span></a></li>
+					<li><a href="index.html"><span class="glyphicon glyphicon-remove" aria-hidden='true'></span></a></li>
+				</ul>
+				<h3 class="navbar-text navbar-right username">John Doe</h3>
+			</div>
+		</div>
+	</nav>
+	<div class="meny">
+		<h2>Teams</h2>
+		<ul id="thisBeAllTheTeams">
+			<li></li>
+		</ul>
+	</div>
+	<div class="meny-arrow"></div>
+
+	<div class="contents">
+		<div class="banner hideMePlease">
+			<img class="bannerImage hideMePlease" src="http://via.placeholder.com/1306x220">
+		</div>
+		<div class="row">
+			<div class="btn-group" role="group" aria-label="...">
+				<button type="button" class="btn btn-default" id="gifButton">Gif's</button>
+				<button type="button" class="btn btn-default" id="factButton">Facts</button>
+				<button type="button" class="btn btn-default" id="gameButton" onclick="location.href='game.html'">Game</button>
+			</div>
+		</div>
+		<!-- Facts and Giphy Modal below here-->
+			<div class="modal" id="IDmodal">
+				<div class="modal-content">
+					<div class="modal-header">
+						<span class="close">&times;</span>
+						<div id="h3Header"></div>
+						<!--<h3> Fun Fact </h3>-->
+						<!--<h3> Some Gifs FOr You </h3>-->
+					</div>
+					<h4 id="gifOrFactsTarget"> </h4>
+					<div class="modal-footer" id="modalButton"></div>
+					<!--<button class="modal-footer"> Click Me For Another New Fact </button>-->
+				</div>
+			</div>
+		<!-- Facts and Giphy Modal Close Here-->
+		<div class="row hideMePlease">
+			<div class="container col-sm-12">
+				<div class="row">
+					<div class="container col-sm-12">
+						<div class="container col-sm-3 squadList">
+							<div class="box">
+								<table class="table table-condensed">
+									<thead>
+									<tr>
+										<th>Player</th>
+										<th>Number</th>
+										<th>Position</th>
+									</tr>
+									</thead>
+									<tbody class="teamPlayersTable">
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="container col-sm-9">
+							<div class="box">
+								<div class="container col-sm-4 teamInfo">
+									<div class="row generalInformation">
+										<div class="panel panel-default">
+											<div class="panel-heading">General Information</div>
+											<div class="panel-body">
+												<ul class="list-group">
+													<li class="list-group-item" id="manager">Manager</li>
+													<li class="list-group-item" id="stadiumName">Stadium</li>
+													<li class="list-group-item" id="established">Date</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="row weatherInformation">
+										<div class="panel panel-default">
+											<div class="panel-heading">Home Stadium Weather Information</div>
+											<div class="panel-body">
+												<img src="http://via.placeholder.com/250x200" id="stadiumImg">
+												<div class="wind"></div>
+												<div class="weather"></div>
+												<div class="temp"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="container col-sm-4 teamInfo">
+									<div class="panel panel-default">
+										<div class="panel-heading">Next Game</div>
+										<div class="panel-body">
+											<h2 id="homeTeamName">(Home)</h2>
+											<h2>VS</h2>
+											<h2 id="awayTeamName">(Away)</h2>
+											<h3 id="fixtureDate">Date</h3>
+											<h3 id="fixtureTime">Time</h3>
+										</div>
+									</div>
+								</div>
+								<div class="container col-sm-4 teamInfo">
+									<div class="row">
+										<ul class="nav nav-pills socialMedia" style="margin-left: 80px";>
+											<li><a href="#"><style>"text-align:center;"</style>Twitter</a></li>
+											<li><a href="#">Instagram</a></li>
+										</ul>
+									</div>
+									<div class="row latestPost">
+										<img src="http://via.placeholder.com/300x300">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="body">
+					<div class="container col-sm-offset-1 col-sm-10 col-sm-offset-1">
+						<div class="container col-sm-12 newsArticles">
+							<script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="48966/"></script>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/meny/1.4.0/meny.js"></script>
+	<script>
+		// Create an instance of Meny
+		var meny = Meny.create({
+			// The element that will be animated in from off screen
+			menuElement: document.querySelector( '.meny' ),
+
+			// The contents that gets pushed aside while Meny is active
+			contentsElement: document.querySelector( '.contents' ),
+
+			// [optional] The alignment of the menu (top/right/bottom/left)
+			position: Meny.getQuery().p || 'left',
+
+			// [optional] The height of the menu (when using top/bottom position)
+			height: 200,
+
+			// [optional] The width of the menu (when using left/right position)
+			width: 260,
+
+			// [optional] Distance from mouse (in pixels) when menu should open
+			threshold: 40,
+
+			// [optional] Use mouse movement to automatically open/close
+			mouse: true,
+
+			// [optional] Use touch swipe events to open/close
+			touch: true
+		});
+		// API Methods:
+		// meny.open();
+		// meny.close();
+		// meny.isOpen();
+		// Events:
+		// meny.addEventListener( 'open', function(){ console.log( 'open' ); } );
+		// meny.addEventListener( 'close', function(){ console.log( 'close' ); } );
+		// Embed an iframe if a URL is passed in
+		if( Meny.getQuery().u && Meny.getQuery().u.match( /^http/gi ) ) {
+			var contents = document.querySelector( '.contents' );
+			contents.style.padding = '0px';
+			contents.innerHTML = '<div class="cover"></div><iframe src="'+ Meny.getQuery().u +'" style="width: 100%; height: 100%; border: 0; position: absolute;"></iframe>';
+		}
+	</script>
+	<script src="assets/javascript/facts.js"></script>
+	<script src="assets/javascript/giphy.js"></script>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	<script>
+		var _gaq = [['_setAccount', 'UA-15240703-1'], ['_trackPageview']];
+		(function(d, t) {
+			var g = d.createElement(t),
+			s = d.getElementsByTagName(t)[0];
+			g.async = true;
+			g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g, s);
+		})(document, 'script');
+	</script>
+</body>
+</html>

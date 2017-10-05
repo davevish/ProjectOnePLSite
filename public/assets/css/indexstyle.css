@@ -1,0 +1,29 @@
+html,
+body {
+	height: 100%;
+	background-image: url("../../assets/images/backgroundImages/welcomeImage.gif");
+	overflow: hidden;
+	background-size: 100%;
+	background-repeat: repeat;
+}
+.avgrund-popup h2{
+	font-family: 'Open Sans Condensed', sans-serif !important;
+	text-align: center;
+	color: black;
+}
+a{
+	font-family: 'Open Sans Condensed', sans-serif !important;
+}
+#username{
+	margin-bottom: 10px;
+}
+.form-group{
+	text-align: center;
+}
+#signInBttn{
+	text-align: center;
+	margin-top: 25%;
+}
+.avgrund-popup{
+	background-image: url("../images/backgroundImages/honey_im_subtle.png") !important;
+}
