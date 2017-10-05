@@ -95,35 +95,32 @@ li{
 #hideMePlease {
 	display:none;
 }
-/********* Facts Styling *********/
-/* The Modal (background) */
+/*************** MODAL ****************/
 .modal {
-	display: none; /* Hidden by default */
-	z-index: 1; /* Sit on top */
-	padding-top: 350px; /* Location of the box */
+	display: none; /* Hide this Initially */
+	z-index: 2; /* Sit over Everything */
+	padding-top: 200px; /* Location of the box */
 	left: 0;
 	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
+	width: 100%;
+	height: 200%;
 	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 	/*background-color: url("../../assets/images/backgroundImages/modalBackground.jpeg")*/
 }
-/* Modal Header*/
+
 .modal-header, .modal-content {
 	text-align: center;
-	background: #2db34a;
 }
-/* Modal Content */
+
 .modal-content {
-	background-color: #4aaaa5;
+	background-color: #bbbbcc;
 	margin: auto;
 	padding: 20px;
 	border: 1px solid #888;
 	width: 80%;
+	font-family: Chalkboard;
 }
 
-/* The Close Button */
 .close {
 	color: #000000;
 	float: right;
@@ -137,27 +134,36 @@ li{
 	text-decoration: none;
 	cursor: pointer;
 }
+
 .modal-footer {
-	background: #4aaaa5;
 	color: snow;
 }
-/*  Gifs Modal */
-.modal2 {
-	display: none; /* Hidden by default */
-	z-index: 1; /* Sit on top */
-	padding-top: 250px; /* Location of the box */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	/*overflow: auto; !* Enable scroll if needed *!*/
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-	/*background-color: url("../../assets/images/backgroundImages/modalBackground.jpeg")*/
-}
 
-#modalButton {
+#modalButton, #modalButton1 {
 	text-align: center;
 	color: #1E1E1E;
 }
 
+.gifImgStyle {
+	height: 150px;
+	width: 150px;
+	margin: 15px;
+}
 
+.factImgButton {
+	background: #b6e8f1;
+	font-family: Chalkboard;
+	font-size: 18px;
+}
+
+#gifOrFactsTarget {
+	font-size: 25px;
+}
+
+.factGifHead {
+	font-size: 35px;
+}
+
+#gifButton, #factButton {
+	z-index: 1;
+}
