@@ -167,3 +167,10 @@ li{
 #gifButton, #factButton {
 	z-index: 1;
 }
+
+#gifButton, #factButton, #gameButton {
+	text-align: center;
+	padding: 10px 50px;
+/}
+
+
