@@ -144,9 +144,9 @@ $.ajax({
         awayTeamNameFixture = [];
         $("#fixtureDate").empty();
 
-        $(".temp").append("");
-        $(".weather").append("");
-        $(".wind").append("");
+        // $(".temp").append("");
+        // $(".weather").append("");
+        // $(".wind").append("");
 
         //  Populate the players table
         playersUrl = $(this).attr("data-players");
@@ -221,10 +221,15 @@ $.ajax({
         //  Insert established date
         var dateEST = $(this).attr("data-established");
         $("#established").html("Established in " + dateEST);
-        //
-        // $(".temp").append("Temperature: " + response2.main.temp + " F");
-        // $(".weather").append(response2.weather[0].description);
-        // $(".wind").append("Wind Speed: " + response2.wind.speed + " mph");
+        // weather function called here.
+        // clear before inserting new weather
+        $(".temp").html("");
+        $(".weather").html("");
+        $(".wind").html("");
+        geoLocation = $(this).attr("data-location");
+        getMyWeather();
+//
+//
         //
 
         // Twitter and Instagram ajax calls here
