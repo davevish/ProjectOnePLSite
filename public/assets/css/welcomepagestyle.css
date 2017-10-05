@@ -113,7 +113,7 @@ li{
 }
 
 .modal-content {
-	background-color: #bbbbcc;
+	background: url("../images/backgroundImages/egg_shell_@2X.png");
 	margin: auto;
 	padding: 20px;
 	border: 1px solid #888;
@@ -145,13 +145,13 @@ li{
 }
 
 .gifImgStyle {
-	height: 150px;
-	width: 150px;
+	height: 180px;
+	width: 140px;
 	margin: 15px;
 }
 
 .factImgButton {
-	background: #b6e8f1;
+	background: url("../images/backgroundImages/egg_shell_@2X.png");
 	font-family: Chalkboard;
 	font-size: 18px;
 }
