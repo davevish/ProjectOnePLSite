@@ -81,7 +81,8 @@ $.ajax({
         .sort()
         .forEach(function(v, i) {
             allTeamInfoOrdered.push([v ,    playerTest[v] , fixturesTest[v] , bannersTeam[i] , teamManagers[i] ,
-                                            teamStadiums[i], teamStadiumImg[i], establishedDate[i] , teamStadiumLocation[i]]);
+                                            teamStadiums[i], teamStadiumImg[i], establishedDate[i] , teamStadiumLocation[i],
+                                            twitterhandle[i] , instahandle[i]]);
         });
 
 //  Log the array that holds the team info     [[ Team Name, Players , Fixtures] , .....]
@@ -107,7 +108,9 @@ $.ajax({
             "data-stadium": team[5],
             "data-stadiumImg": team[6],
             "data-established": team[7],
-            "data-location": team[8]
+            "data-location": team[8],
+            "data-twitter": team[9],
+            "data-insta": team[10]
         });
 
         aTagLink.append(listItem);
@@ -208,10 +211,14 @@ $.ajax({
         //  Insert established date
         var dateEST = $(this).attr("data-established");
         $("#established").html("Established in " + dateEST);
+        //
+        // $(".temp").append("Temperature: " + response2.main.temp + " F");
+        // $(".weather").append(response2.weather[0].description);
+        // $(".wind").append("Wind Speed: " + response2.wind.speed + " mph");
+        //
 
-        $(".temp").append("Temperature: " + response2.main.temp + " F");
-        $(".weather").append(response2.weather[0].description);
-        $(".wind").append("Wind Speed: " + response2.wind.speed + " mph");
+    //    Twitter and Instagram ajax calls here
+
     });
 
 });
