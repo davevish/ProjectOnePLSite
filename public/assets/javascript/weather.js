@@ -12,29 +12,30 @@ var teamStadiumLocation = [	"Bournemouth+BH7+7AF,+UK", "London+N7+7AJ,+UK", "Bri
 
 
 // $(".thisTeamClass").on("click", function(){
-		geoLocation = $(this).attr("data-location");
-		var queryURL = query + geoLocation + APIKey;
-		$.ajax({
-		url: queryURL,
-		method: "GET"
-	}).done(function(response2) {
+	function getMyWeather (){
+        var queryURL = query + geoLocation + APIKey;
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function(response2) {
 
             $(".temp").html("Temperature: " + response2.main.temp + " F");
             $(".weather").html(response2.weather[0].description);
             $(".wind").html("Wind Speed: " + response2.wind.speed + " mph");
 
-            console.log(url);
-			console.log(response2);
+            console.log(response2);
             //
             //
-			// $(".temp").html("Temperature: " + response.main.temp + " F");
-			// $(".weather").html(response.weather[0].description);
-			// $(".wind").html("Wind Speed: " + response.wind.speed + " mph");
+            // $(".temp").html("Temperature: " + response.main.temp + " F");
+            // $(".weather").html(response.weather[0].description);
+            // $(".wind").html("Wind Speed: " + response.wind.speed + " mph");
             //
-			// console.log("Wind Speed: " + response.wind.speed + " mph");
-			// console.log("Weather: " + response.main.humidity);
-			// console.log("Temperature: " + response.main.temp + " F");
-		});
+            // console.log("Wind Speed: " + response.wind.speed + " mph");
+            // console.log("Weather: " + response.main.humidity);
+            // console.log("Temperature: " + response.main.temp + " F");
+        });
+	}
+
 		// console.log("this");
 		// console.log();
 // });
