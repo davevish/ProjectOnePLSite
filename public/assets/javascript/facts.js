@@ -86,6 +86,7 @@ $("#gifButton").on("click", function () {
     $("#modalButton").css('display', 'none');
     $("#modalButton1").css('display', 'block');
     $(".modal").css('display', 'block');
+    $("#gifOrFactsTarget").empty();
     //  Close when X is clicked in corner
     $(".close").on("click", function() {
         $(".modal").css('display', 'none');
@@ -102,7 +103,7 @@ $("#gifButton").on("click", function () {
 
     //  Call the function to display gifs
     displayGifs();
-
+    $("#gifOrFactsTarget").empty();
     $("#modalButton1").on("click", function () {
         displayGifs();
     });
