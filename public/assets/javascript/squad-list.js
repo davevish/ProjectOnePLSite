@@ -245,7 +245,7 @@ $.ajax({
 });
 
 
-PLdatabase.ref().push({
-    team: team
-});
+// PLdatabase.ref().push({
+//     team: team
+// });
 
