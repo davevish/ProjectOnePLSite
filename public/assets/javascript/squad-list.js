@@ -73,8 +73,11 @@ $.ajax({
         // console.log(teams);
 
     //  Grab Squad and Fixtures Query Links and store them in a object
-        SquadQuery = response.teams[i]._links.players.href;
-        FixturesQuery = response.teams[i]._links.fixtures.href;
+        var Squadauth = response.teams[i]._links.players.href;
+        var Fixturesauth = response.teams[i]._links.fixtures.href;
+
+        SquadQuery = Squadauth.slice(0,4) + "s" + Squadauth.slice(4,100);
+        FixturesQuery = Fixturesauth.slice(0,4) + "s" + Fixturesauth.slice(4,100);
 
         playerTest[teams] = SquadQuery;
         fixturesTest[teams] = FixturesQuery;
