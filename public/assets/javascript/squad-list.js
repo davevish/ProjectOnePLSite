@@ -131,6 +131,10 @@ $.ajax({
         awayTeamNameFixture = [];
         $("#fixtureDate").empty();
 
+        $(".temp").append("");
+        $(".weather").append("");
+        $(".wind").append("");
+
         //  Populate the players table
         playersUrl = $(this).attr("data-players");
         // Separate Ajax call for players since they each have their own QueryURL
@@ -205,17 +209,14 @@ $.ajax({
         var dateEST = $(this).attr("data-established");
         $("#established").html("Established in " + dateEST);
 
-        $(".temp").empty();
-        $(".weather").empty();
-        $(".wind").empty();
-
-        $(".temp").html("Temperature: " + response2.main.temp + " F");
-        $(".weather").html(response2.weather[0].description);
-        $(".wind").html("Wind Speed: " + response2.wind.speed + " mph");
+        $(".temp").append("Temperature: " + response2.main.temp + " F");
+        $(".weather").append(response2.weather[0].description);
+        $(".wind").append("Wind Speed: " + response2.wind.speed + " mph");
     });
 
 });
 
 PLdatabase.ref().push({
-            team: team
-        });
+    team: team
+});
+
