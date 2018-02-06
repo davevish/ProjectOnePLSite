@@ -1,8 +1,8 @@
 // Inesrt username on page first
 
-
-var squadAPI = "97dcf4541b834e55a85220bc5957afa1";
-var teamsQuery = "https://api.football-data.org/v1/competitions/445/teams";
+var keys = require("../../../config.js");
+var squadAPI = keys.squadAPIKey;
+var teamsQuery = keys.teamsQuery;
 
 var SquadQuery;
 var orderTeam = [];
