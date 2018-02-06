@@ -1,11 +1,6 @@
 // Initialize Firebase
 var config = {
-	apiKey: "AIzaSyCd-5wGWJr19d9SSurBijN8qpTbDAQ5oK4",
-	authDomain: "premier-league-project.firebaseapp.com",
-	databaseURL: "https://premier-league-project.firebaseio.com",
-	projectId: "premier-league-project",
-	storageBucket: "premier-league-project.appspot.com",
-	messagingSenderId: "804191688497"
+
 };
 firebase.initializeApp(config);
 

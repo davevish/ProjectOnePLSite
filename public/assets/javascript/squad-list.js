@@ -1,8 +1,8 @@
 // Inesrt username on page first
 
-
-var squadAPI = "97dcf4541b834e55a85220bc5957afa1";
-var teamsQuery = "https://api.football-data.org/v1/competitions/445/teams";
+var keys = require("../../../config.js");
+var squadAPI = keys.squadAPIKey;
+var teamsQuery = keys.teamsQuery;
 
 var SquadQuery;
 var orderTeam = [];
@@ -51,7 +51,7 @@ var establishedDate = [ "1899", "1886", "1901", "1882", "1905", "1905", "1878", 
 
 var twitterHandle = ["@afcbournemouth","@Arsenal","@OfficialBHAFC","@BurnleyOfficial","@ChelseaFC","@CPFC",
                      "@everton","@htafcdotcom","@LCFC","@LFC","@mancity","@ManUtd","@NUFC","@SouthamptonFC",
-                     "@stokecity","@SwansOfficial","@spursofficial","@WatfordFC","@WBA","@westhamutd"] 
+                     "@stokecity","@SwansOfficial","@spursofficial","@WatfordFC","@WBA","@westhamutd"] ;
 
 var instaHandle =  ["@officialafcb","@arsenal","@Officialbhafc","@burnleyofficial","@Chelseafc","@cpfc",
                     "@everton","@htafcinstagram","@lcfc","@liverpoolfc","@mancity","@manchesterunited","@nufc",
@@ -238,6 +238,7 @@ $.ajax({
         // Twitter and Instagram ajax calls here
         var twitter = $(this).attr("data-twitter");
         var instagram = $(this).attr("data-insta");
+        console.log(twitter);
 
     });
 
