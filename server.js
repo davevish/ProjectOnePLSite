@@ -9,17 +9,18 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlin
 const env = require("dotenv").load();
 
 // Require our routes
-const routes = require("./routes");
+const routes = require("./routes/api-routes.js");
 
 // Designate our public folder as a static directory
 app.use(express.static("public"));
+
 
 // Use bodyParser in our app
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Routes
-require("./routes/api-routes.js")(app);
+app.use(routes);
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
