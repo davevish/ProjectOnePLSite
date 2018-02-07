@@ -1,4 +1,4 @@
-// Inesrt username on page first
+// Insert username on page first
 
 var keys = require("../../../config.js");
 var squadAPI = keys.squadAPIKey;
@@ -55,7 +55,7 @@ var twitterHandle = ["@afcbournemouth","@Arsenal","@OfficialBHAFC","@BurnleyOffi
 
 var instaHandle =  ["@officialafcb","@arsenal","@Officialbhafc","@burnleyofficial","@Chelseafc","@cpfc",
                     "@everton","@htafcinstagram","@lcfc","@liverpoolfc","@mancity","@manchesterunited","@nufc",
-                    "@southamptonfc","@stokecity","@swansofficial","@spursofficial","@watfordofficial","@wba","@westham"]
+                    "@southamptonfc","@stokecity","@swansofficial","@spursofficial","@watfordofficial","@wba","@westham"];
 
 //****************** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   *********************************************
 var allTeamInfoOrdered = [];
@@ -86,10 +86,8 @@ $.ajax({
         fixturesTest[teams] = FixturesQuery;
 
     }
-    // Sort Teams by Name
-    var newTeamOrder = orderTeam.sort();
 
-    // Make The Array That will Hold all Information for Teams
+    // Make The Array That will Hold all Information for Teams and sort Teams by Name
     Object.keys(playerTest, fixturesTest, bannersTeam, teamManagers, teamStadiums, teamStadiumImg, establishedDate)
         .sort()
         .forEach(function(v, i) {

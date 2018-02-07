@@ -1,4 +1,4 @@
-var keys = require("../../../config.js");
+var keys = require("../../../config");
 
 var APIKey = keys.weatherAPIKey;
 var geoLocation;
