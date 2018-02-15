@@ -2,7 +2,7 @@
 // //  related to what index we land on
 // var searchMeArray = [   "EPL", "EPL funny", "Soccer funny", "Soccer Team Funny", "Soccer Dive Funny",
 //                         "Soccer Fall", "Soccer Fall Funny", "Soccer Fake", "Soccer Juke", "Soccer Fail"];
-// var keyLim = "&limit=5&api_key=p61cW0ySxTXCRmZWsUKICmpiMZqEKYjc";
+// var keyLim = ;
 //
 // //  Create on click function and link to HTML page
 // $("#gifButton").on("click", function () {

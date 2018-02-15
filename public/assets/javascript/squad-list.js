@@ -1,6 +1,6 @@
-// Inesrt username on page first
+// Insert username on page first
 
-
+// var keys = require("../../../config.js");
 var squadAPI = "97dcf4541b834e55a85220bc5957afa1";
 var teamsQuery = "https://api.football-data.org/v1/competitions/445/teams";
 
@@ -17,6 +17,7 @@ var homeTeamNameFixture = [];
 var awayTeamNameFixture = [];
 var dateOfGame;
 var timeOfGame;
+var teamLoc;
 
 // Banners Array to hold All Team Banners
 var bannersTeam = [ "assets/images/banners/Bournemouth.jpg", "assets/images/banners/Arsenal.jpg", "assets/images/banners/Brighton.jpg",
@@ -51,11 +52,11 @@ var establishedDate = [ "1899", "1886", "1901", "1882", "1905", "1905", "1878", 
 
 var twitterHandle = ["@afcbournemouth","@Arsenal","@OfficialBHAFC","@BurnleyOfficial","@ChelseaFC","@CPFC",
                      "@everton","@htafcdotcom","@LCFC","@LFC","@mancity","@ManUtd","@NUFC","@SouthamptonFC",
-                     "@stokecity","@SwansOfficial","@spursofficial","@WatfordFC","@WBA","@westhamutd"] 
+                     "@stokecity","@SwansOfficial","@spursofficial","@WatfordFC","@WBA","@westhamutd"] ;
 
 var instaHandle =  ["@officialafcb","@arsenal","@Officialbhafc","@burnleyofficial","@Chelseafc","@cpfc",
                     "@everton","@htafcinstagram","@lcfc","@liverpoolfc","@mancity","@manchesterunited","@nufc",
-                    "@southamptonfc","@stokecity","@swansofficial","@spursofficial","@watfordofficial","@wba","@westham"]
+                    "@southamptonfc","@stokecity","@swansofficial","@spursofficial","@watfordofficial","@wba","@westham"];
 
 //****************** THIS WILL HOLD ALL DATA RELATED TO EACH TEAM NEEDED   *********************************************
 var allTeamInfoOrdered = [];
@@ -86,10 +87,8 @@ $.ajax({
         fixturesTest[teams] = FixturesQuery;
 
     }
-    // Sort Teams by Name
-    var newTeamOrder = orderTeam.sort();
 
-    // Make The Array That will Hold all Information for Teams
+    // Make The Array That will Hold all Information for Teams and sort Teams by Name
     Object.keys(playerTest, fixturesTest, bannersTeam, teamManagers, teamStadiums, teamStadiumImg, establishedDate)
         .sort()
         .forEach(function(v, i) {
@@ -151,6 +150,8 @@ $.ajax({
         // $(".weather").append("");
         // $(".wind").append("");
 
+        // Grab team weather location
+        teamLoc = $(this).attr("data-location");
         //  Populate the players table
         playersUrl = $(this).attr("data-players");
         // Separate Ajax call for players since they each have their own QueryURL
@@ -188,7 +189,7 @@ $.ajax({
             type: "GET"
         }).done(function(response) {
 
-            for( var i = 0; i < response.fixtures.length;i++ )
+            for( var i = 0; i < response.fixtures.length; i++ )
                 if (response.fixtures[i].status === "TIMED") {
                     nextFixtureDate.push(response.fixtures[i].date);
                     homeTeamNameFixture.push(response.fixtures[i].homeTeamName);
@@ -230,7 +231,7 @@ $.ajax({
         $(".weather").html("");
         $(".wind").html("");
         geoLocation = $(this).attr("data-location");
-        getMyWeather();
+        getMyWeather(teamLoc);
 //
 //
         //
@@ -238,6 +239,7 @@ $.ajax({
         // Twitter and Instagram ajax calls here
         var twitter = $(this).attr("data-twitter");
         var instagram = $(this).attr("data-insta");
+        console.log(twitter);
 
     });
 

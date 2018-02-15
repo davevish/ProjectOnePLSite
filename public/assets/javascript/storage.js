@@ -1,11 +1,33 @@
-// Initialize Firebase
+
+//  Initialize Firebase
 var config = {
-	apiKey: "AIzaSyCd-5wGWJr19d9SSurBijN8qpTbDAQ5oK4",
-	authDomain: "premier-league-project.firebaseapp.com",
-	databaseURL: "https://premier-league-project.firebaseio.com",
-	projectId: "premier-league-project",
-	storageBucket: "premier-league-project.appspot.com",
-	messagingSenderId: "804191688497"
+    apiKey: "AIzaSyCCET1gECspYeGi0gpWiTEx9eRvqxpRDKk",
+    authDomain: "project-1-pl-site.firebaseapp.com",
+    databaseURL: "https://project-1-pl-site.firebaseio.com",
+    projectId: "project-1-pl-site",
+    storageBucket: "",
+    messagingSenderId: "923335599372"
+};
+firebase.initializeApp(config);
+//
+var databaseRef = firebase.database().ref("messages");
+
+
+$("#registerButton").on("click", function () {
+    localStorage.clear();
+    var uName = $("#username").val();
+    localStorage.setItem("username", uName);
+});
+
+var userN = localStorage.getItem("username");
+$(".welcomeUsername").text(userN);
+
+
+
+
+/*// Initialize Firebase
+var config = {
+
 };
 firebase.initializeApp(config);
 
@@ -38,4 +60,4 @@ $("#registerButton").on("click", function(event){
 		console.log(childSnapshot.val().username);
 		$(".welcomeUsername").append(childSnapshot.val().username);
 	});
-});
+}); */

@@ -130,8 +130,9 @@ li{
 	margin-bottom: 10px;
 }
 #stadiumImg {
-	height: 200px;
-	width: 250px;
+	height: auto;
+	width: 100%;
+	overflow: auto;
 }
 .hideMePlease {
 	display: none;
