@@ -24,20 +24,8 @@ var teamStadiumLocation = [	"Bournemouth+BH7+7AF,+UK", "London+N7+7AJ,+UK", "Bri
             $(".wind").html("Wind Speed: " + response2.wind.speed + " mph");
 
             console.log(response2);
-            //
-            //
-            // $(".temp").html("Temperature: " + response.main.temp + " F");
-            // $(".weather").html(response.weather[0].description);
-            // $(".wind").html("Wind Speed: " + response.wind.speed + " mph");
-            //
-            // console.log("Wind Speed: " + response.wind.speed + " mph");
-            // console.log("Weather: " + response.main.humidity);
-            // console.log("Temperature: " + response.main.temp + " F");
         });
 	}
 
-		// console.log("this");
-		// console.log();
-// });
 console.log("this");
 
