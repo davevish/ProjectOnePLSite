@@ -176,4 +176,6 @@ li{
 	padding: 10px 50px;
 }
 
-
+#homeTeamName, #awayTeamName, #fixtureDate, #fixtureTime {
+	font-size: large!important;
+}

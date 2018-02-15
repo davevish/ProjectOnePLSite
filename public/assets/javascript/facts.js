@@ -27,7 +27,7 @@ var factsArray = [  "The first ever Premier League goal was scored by Brian Dean
                     "Striker Marcus Bent has played for the most EPL clubs, with eight",
                     "The Premier League ranks fourth among professional sports leagues in the world by revenue (4,865 € million)"];
 
-var keys = require("../../../config.js");
+// var keys = require("../../../config.js");
 
 //  This function will shuffle the facts array so they dont get the same fact first every time they come back to the site
 function shuffleMe() {
@@ -78,8 +78,8 @@ var searchMeArray = [   "EPL", "EPL funny", "Soccer funny", "Soccer Team Funny",
     "england Soccer", "soccer dance", "soccer celebration", "soccer celebration funny", "soccer meme",
     "soccer meme funny", "penalty kick", "penalty kick funny", "penalty kick fail"];
 
-var giphy = keys.giphyURL;
-var keyLim = keys.giphyKeyLim;
+var giphy = "https://api.giphy.com/v1/gifs/search?q=";
+var keyLim = "&limit=5&api_key=p61cW0ySxTXCRmZWsUKICmpiMZqEKYjc";
 
 var searchParam=[];
 

@@ -1,8 +1,8 @@
 // Insert username on page first
 
-var keys = require("../../../config.js");
-var squadAPI = keys.squadAPIKey;
-var teamsQuery = keys.teamsQuery;
+// var keys = require("../../../config.js");
+var squadAPI = "97dcf4541b834e55a85220bc5957afa1";
+var teamsQuery = "https://api.football-data.org/v1/competitions/445/teams";
 
 var SquadQuery;
 var orderTeam = [];
@@ -17,6 +17,7 @@ var homeTeamNameFixture = [];
 var awayTeamNameFixture = [];
 var dateOfGame;
 var timeOfGame;
+var teamLoc;
 
 // Banners Array to hold All Team Banners
 var bannersTeam = [ "assets/images/banners/Bournemouth.jpg", "assets/images/banners/Arsenal.jpg", "assets/images/banners/Brighton.jpg",
@@ -149,6 +150,8 @@ $.ajax({
         // $(".weather").append("");
         // $(".wind").append("");
 
+        // Grab team weather location
+        teamLoc = $(this).attr("data-location");
         //  Populate the players table
         playersUrl = $(this).attr("data-players");
         // Separate Ajax call for players since they each have their own QueryURL
@@ -186,7 +189,7 @@ $.ajax({
             type: "GET"
         }).done(function(response) {
 
-            for( var i = 0; i < response.fixtures.length;i++ )
+            for( var i = 0; i < response.fixtures.length; i++ )
                 if (response.fixtures[i].status === "TIMED") {
                     nextFixtureDate.push(response.fixtures[i].date);
                     homeTeamNameFixture.push(response.fixtures[i].homeTeamName);
@@ -228,7 +231,7 @@ $.ajax({
         $(".weather").html("");
         $(".wind").html("");
         geoLocation = $(this).attr("data-location");
-        getMyWeather();
+        getMyWeather(teamLoc);
 //
 //
         //
