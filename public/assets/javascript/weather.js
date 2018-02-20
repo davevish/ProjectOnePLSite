@@ -1,7 +1,5 @@
-// var keys = require("../../../config");
 
-// var APIKey = "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
-var APIKey = "&units=imperial&appid=0e2c2fc184542b0875a2fcddd1f8aac7";
+var APIKey = weatherAPI;
 var geoLocation;
 var query = "https://api.openweathermap.org/data/2.5/weather?q=";
 

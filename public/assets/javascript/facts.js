@@ -79,7 +79,7 @@ var searchMeArray = [   "EPL", "EPL funny", "Soccer funny", "Soccer Team Funny",
     "soccer meme funny", "penalty kick", "penalty kick funny", "penalty kick fail"];
 
 var giphy = "https://api.giphy.com/v1/gifs/search?q=";
-var keyLim = "&limit=5&api_key=p61cW0ySxTXCRmZWsUKICmpiMZqEKYjc";
+var keyLim = giphyKey;
 
 var searchParam=[];
 

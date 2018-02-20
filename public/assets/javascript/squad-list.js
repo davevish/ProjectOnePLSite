@@ -1,7 +1,7 @@
 // Insert username on page first
 
 // var keys = require("../../../config.js");
-var squadAPI = "97dcf4541b834e55a85220bc5957afa1";
+var squadAPI = squadAPIKey;
 var teamsQuery = "https://api.football-data.org/v1/competitions/445/teams";
 
 var SquadQuery;
