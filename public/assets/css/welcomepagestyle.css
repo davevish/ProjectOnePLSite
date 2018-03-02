@@ -17,6 +17,7 @@ body{
 .navbar{
 	background: url("../images/backgroundImages/egg_shell_@2X.png");
 	margin-bottom: 0 !important;
+	border-radius: 0;
 }
 .username{
 	font-family: 'Allerta Stencil', sans-serif;
